@@ -1,4 +1,4 @@
 import { defineConfig } from 'astro/config';
 
-// site and base are set at publish time, not for the mock.
-export default defineConfig({});
+// swap for the custom domain once there is one
+export default defineConfig({ site: 'https://portfolio-site-2ic.pages.dev' });

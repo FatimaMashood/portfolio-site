@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { title, description, showDrafts = false } = Astro.props;
-const socialImage = '/images/meta-media-sovereign-bacteria/meta-07-1200.webp';
+const socialImage = new URL('/images/meta-media-sovereign-bacteria/meta-07-1200.webp', Astro.site ?? Astro.url).href;
 ---
 <!doctype html>
 <html lang="en">
