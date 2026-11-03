@@ -318,5 +318,45 @@
     "file": "/images/cat-computer-interaction/cci-poster-2000.webp",
     "width": 2000,
     "height": 2823
+  },
+  {
+    "file": "/images/media-language-victim-blaming/media-language-victim-blaming-emotion-1200.webp",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "file": "/images/media-language-victim-blaming/media-language-victim-blaming-emotion-600.webp",
+    "width": 600,
+    "height": 338
+  },
+  {
+    "file": "/images/media-language-victim-blaming/media-language-victim-blaming-keyword-search-1200.webp",
+    "width": 1200,
+    "height": 945
+  },
+  {
+    "file": "/images/media-language-victim-blaming/media-language-victim-blaming-keyword-search-600.webp",
+    "width": 600,
+    "height": 473
+  },
+  {
+    "file": "/images/media-language-victim-blaming/media-language-victim-blaming-sentiment-1200.webp",
+    "width": 1119,
+    "height": 1200
+  },
+  {
+    "file": "/images/media-language-victim-blaming/media-language-victim-blaming-sentiment-600.webp",
+    "width": 559,
+    "height": 600
+  },
+  {
+    "file": "/images/media-language-victim-blaming/media-language-victim-blaming-top-terms-1200.webp",
+    "width": 1200,
+    "height": 518
+  },
+  {
+    "file": "/images/media-language-victim-blaming/media-language-victim-blaming-top-terms-600.webp",
+    "width": 600,
+    "height": 259
   }
 ]
