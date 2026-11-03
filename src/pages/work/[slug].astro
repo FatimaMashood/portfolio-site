@@ -1,0 +1,105 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const order = [
+  'thesis',
+  'cat-computer-interaction',
+  'talis-professional-development',
+  'inclusive-mobility',
+  'research-workflows',
+  'media-language-victim-blaming',
+  'v2-hear-me-out',
+  'meta-media-sovereign-bacteria',
+];
+const position = (slug: string) => {
+  const index = order.indexOf(slug);
+  return index === -1 ? order.length : index;
+};
+const showDrafts = import.meta.env.DEV || process.env.SHOW_DRAFTS === '1';
+
+export async function getStaticPaths() {
+  const drafts = import.meta.env.DEV || process.env.SHOW_DRAFTS === '1';
+  const projectOrder = [
+    'thesis',
+    'cat-computer-interaction',
+    'talis-professional-development',
+    'inclusive-mobility',
+    'research-workflows',
+    'media-language-victim-blaming',
+    'v2-hear-me-out',
+    'meta-media-sovereign-bacteria',
+  ];
+  const projectPosition = (slug: string) => {
+    const index = projectOrder.indexOf(slug);
+    return index === -1 ? projectOrder.length : index;
+  };
+  const visibleProjects = (await getCollection('projects'))
+    .filter((entry) => drafts || entry.data.publish)
+    .sort((a, b) => projectPosition(a.data.slug) - projectPosition(b.data.slug));
+
+  return visibleProjects.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry, projects: visibleProjects },
+  }));
+}
+
+const { entry, projects: visibleProjects } = Astro.props as {
+  entry: CollectionEntry<'projects'>;
+  projects: CollectionEntry<'projects'>[];
+};
+const { Content } = await render(entry);
+const { title, subtitle, caption, summary, links = [] } = entry.data;
+const linkLabel = (url: string) => {
+  const host = new URL(url).hostname;
+  if (host === 'github.com') return 'Code and materials on GitHub';
+  if (host.endsWith('github.io')) return 'Live explorer';
+  return host.replace(/^www\./, '');
+};
+const currentIndex = visibleProjects.findIndex((project) => project.data.slug === entry.data.slug);
+const previousProject = currentIndex > 0 ? visibleProjects[currentIndex - 1] : undefined;
+const nextProject = currentIndex >= 0 ? visibleProjects[currentIndex + 1] : undefined;
+// ponytail: one hero per page, set here so content files stay untouched; chart-only pages open on their charts instead
+const heroes: Record<string, { src: string; alt: string; caption: string; fit?: string; bg?: string; ratio?: string; pos?: string; w?: string }> = {
+  thesis: { src: '/images/thesis/setup-1200.webp', alt: 'Overhead photograph of two players typing at laptops on a table, with the white sensor box and Arduino between them.', caption: 'A session from above, two players at their laptops with the Arduino box between them.' },
+  'cat-computer-interaction': { src: '/images/cat-computer-interaction/setup-illustration.webp', alt: 'Illustration of a black cat on a pink mat watching a fish toy swing from a rod above it.', caption: 'Our drawing of the pilot setup, a cat, a pink mat and a fish toy on a rod.', fit: 'contain', bg: '#f8def6', ratio: '2 / 1' },
+  'inclusive-mobility': { src: '/images/inclusive-mobility/mobility-02-rickshaw-project-1200.webp', alt: 'Rear and front views of a white auto-rickshaw painted with colourful wings and the words The Rickshaw Project and Moving people, changing minds.', caption: 'The Rickshaw Project vehicle, NOWPDP, Karachi, Pakistan.' },
+  'research-workflows': { src: '/images/research-workflows/collate-poster-full-1200.webp', alt: 'The collate group poster showing its key features, the Explore, Engage and Reflect journey, prototype screens and future work.', caption: 'Our group poster for collate', ratio: '1200 / 1679', w: '24rem' },
+  'v2-hear-me-out': { src: '/images/v2-hear-me-out/_MG_4946-1200.webp', alt: 'Red phone booth with two hanging handsets and labelled decoder and volume controls.', caption: 'The interactive installation at the V2_ Lab in Rotterdam, a phone booth where visitors turn two dials to decode a distorted voice.', ratio: '1200 / 1847', w: '22rem' },
+  'meta-media-sovereign-bacteria': { src: '/images/meta-media-sovereign-bacteria/process-jar.webp', alt: 'Top-down view of a glass jar of cabbage on a dark table.', caption: 'One of our sauerkraut jars, seen from above.' },
+};
+const hero = heroes[entry.data.slug];
+---
+<Base title={`${title} | Fatima Mashood`} description={summary} showDrafts={showDrafts}>
+  <header class="project-heading">
+    <a class="back-link" href="/">back to work</a>
+    <p class="breadcrumb"><a href="/">Home</a> / Work / {title}</p>
+    <h1>{title}</h1>
+    {subtitle && <p class="subtitle">{subtitle}</p>}
+    {caption && <p class="project-caption">{caption}</p>}
+    {links.length > 0 && (
+      <p class="project-links">
+        {links.map((url) => <a href={url} rel="noopener">{linkLabel(url)}</a>)}
+      </p>
+    )}
+  </header>
+
+  <main id="content" class="project-main">
+    {hero && (
+      <figure class="project-hero" style={hero.w ? `max-width:${hero.w}` : undefined}>
+        <img src={hero.src} alt={hero.alt} style={`object-fit:${hero.fit ?? 'cover'};object-position:${hero.pos ?? 'center'};background:${hero.bg ?? 'var(--page)'};aspect-ratio:${hero.ratio ?? '3 / 2'}`} loading="eager" decoding="async" />
+        <figcaption>{hero.caption}</figcaption>
+      </figure>
+    )}
+
+    <article class="article-body">
+      <Content />
+    </article>
+
+  </main>
+
+  <nav class="project-nav" aria-label="Project navigation">
+    {previousProject ? <a href={`/work/${previousProject.data.slug}/`}><small>Previous project</small><strong>{previousProject.data.title}</strong></a> : <span></span>}
+    {nextProject ? <a href={`/work/${nextProject.data.slug}/`}><small>Next project</small><strong>{nextProject.data.title}</strong></a> : <span></span>}
+  </nav>
+</Base>

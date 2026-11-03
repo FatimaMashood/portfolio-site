@@ -1,0 +1,20 @@
+---
+import EvidenceChip from './EvidenceChip.astro';
+
+interface Props {
+  evidence: string;
+  description: string;
+  descriptionId: string;
+  wide?: boolean;
+}
+
+const { evidence, description, descriptionId, wide = false } = Astro.props;
+---
+
+<div class:list={['cover', { 'cover-wide': wide }]} data-cover>
+  <EvidenceChip label={evidence} />
+  <div class="cover-art" aria-hidden="true">
+    <slot />
+  </div>
+  <span class="visually-hidden" id={descriptionId}>{description}</span>
+</div>

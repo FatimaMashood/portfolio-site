@@ -1,0 +1,13 @@
+---
+interface Props {
+  a: string;
+  b: string;
+}
+
+const { a, b } = Astro.props;
+---
+
+<div class="hover-swap">
+  <img src={`${a}-1200.webp`} srcset={`${a}-600.webp 600w, ${a}-1200.webp 1200w`} sizes="(min-width: 901px) 33vw, 100vw" alt="" loading="lazy" decoding="async" />
+  <img src={`${b}-1200.webp`} srcset={`${b}-600.webp 600w, ${b}-1200.webp 1200w`} sizes="(min-width: 901px) 33vw, 100vw" alt="" loading="lazy" decoding="async" />
+</div>

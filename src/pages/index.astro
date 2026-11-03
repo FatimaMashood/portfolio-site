@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Card from '../components/Card.astro';
+
+const order = [
+  'thesis',
+  'cat-computer-interaction',
+  'talis-professional-development',
+  'inclusive-mobility',
+  'research-workflows',
+  'media-language-victim-blaming',
+  'v2-hear-me-out',
+  'meta-media-sovereign-bacteria',
+];
+const effects = {
+  thesis: 'thesis',
+  'cat-computer-interaction': 'cci',
+  'inclusive-mobility': 'mobility',
+  'research-workflows': 'workflow',
+  'talis-professional-development': 'talis',
+  'v2-hear-me-out': 'v2',
+  'meta-media-sovereign-bacteria': 'meta',
+  'media-language-victim-blaming': 'talis',
+} as const;
+const showDrafts = import.meta.env.DEV || process.env.SHOW_DRAFTS === '1';
+const position = (slug: string) => {
+  const index = order.indexOf(slug);
+  return index === -1 ? order.length : index;
+};
+const projects = (await getCollection('projects'))
+  .filter((entry) => showDrafts || entry.data.publish)
+  .sort((a, b) => position(a.data.slug) - position(b.data.slug));
+---
+<Base title="Selected work | Fatima Mashood" description="I'm Fatima, an interdisciplinary design researcher based in The Netherlands, with an MSc in Creative Intelligence and Technology from Leiden University. My work spans empirical and action research and multimedia design, in projects ranging from human-computer and cat-computer interaction to education research and inclusive design, and from prototypes to installations." showDrafts={showDrafts}>
+  <main id="content">
+    <header class="page-intro">
+      <h1>Selected work</h1>
+      <p>I'm Fatima, an interdisciplinary design researcher based in The Netherlands, with an MSc in Creative Intelligence and Technology from Leiden University. My work spans empirical and action research and multimedia design, in projects ranging from human-computer and cat-computer interaction to education research and inclusive design, and from prototypes to installations.</p>
+    </header>
+    <section class="work-group" aria-label="Selected work">
+      <div class="grid">
+        {projects.map((entry) => <Card entry={entry} fx={effects[entry.data.slug] ?? 'talis'} />)}
+      </div>
+    </section>
+  </main>
+</Base>
+
+<script src="../scripts/card-fx.ts"></script>

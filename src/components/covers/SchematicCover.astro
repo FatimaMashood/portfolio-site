@@ -1,0 +1,31 @@
+---
+interface Props {
+  src: string;
+}
+
+const { src } = Astro.props;
+---
+
+<div class="schematic-cover">
+  <div class="sc-sheet">
+    <img src={src} alt="" width="875" height="760" loading="lazy" decoding="async" />
+    <svg class="sc-pulses" viewBox="0 0 875 760" aria-hidden="true" focusable="false">
+      <path id="sc-wire-a" d="M335 224 C335 290 345 322 375 330" fill="none" />
+      <path id="sc-wire-b" d="M527 220 C527 290 515 322 473 330" fill="none" />
+      <circle r="8" class="sc-dot">
+        <animateMotion dur="1.6s" repeatCount="indefinite"><mpath href="#sc-wire-a" /></animateMotion>
+      </circle>
+      <circle r="8" class="sc-dot">
+        <animateMotion dur="1.6s" begin="0.8s" repeatCount="indefinite"><mpath href="#sc-wire-b" /></animateMotion>
+      </circle>
+      <path id="sc-wire-c" d="M260 438 C248 485 255 532 283 556" fill="none" />
+      <path id="sc-wire-d" d="M620 468 C626 515 612 548 573 571" fill="none" />
+      <circle r="8" class="sc-dot">
+        <animateMotion dur="1.6s" repeatCount="indefinite"><mpath href="#sc-wire-c" /></animateMotion>
+      </circle>
+      <circle r="8" class="sc-dot">
+        <animateMotion dur="1.6s" begin="0.8s" repeatCount="indefinite"><mpath href="#sc-wire-d" /></animateMotion>
+      </circle>
+    </svg>
+  </div>
+</div>

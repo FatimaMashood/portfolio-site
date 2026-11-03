@@ -1,0 +1,47 @@
+---
+interface Props {
+  src: string;
+}
+
+const { src } = Astro.props;
+---
+
+<div class="poster-creatures">
+  <div class="pc-sheet">
+    <img src={src} alt="" width="743" height="560" loading="lazy" decoding="async" />
+    <svg class="pc-eyes" viewBox="0 0 743 560" aria-hidden="true" focusable="false">
+      <g transform="translate(128 206)">
+        <g class="pc-eye">
+          <circle r="9.5" fill="#ffffff" />
+          <circle data-pupil r="4.8" fill="#111111" />
+        </g>
+      </g>
+      <g transform="translate(626 170)">
+        <g class="pc-eye pc-eye-b">
+          <circle r="9.5" fill="#ffffff" />
+          <circle data-pupil r="4.8" fill="#111111" />
+        </g>
+      </g>
+    </svg>
+  </div>
+</div>
+
+<script>
+  // ponytail: one card, one pointer listener; pupils only follow on hover-capable, motion-ok devices
+  const card = document.querySelector<HTMLElement>('.card-research-workflows');
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches || !matchMedia('(hover: hover)').matches;
+  if (card && !calm) {
+    const pupils = [...card.querySelectorAll<SVGElement>('[data-pupil]')];
+    const look = (x: number, y: number) =>
+      pupils.forEach((p) => {
+        const r = (p.parentNode as SVGGElement).getBoundingClientRect();
+        const dx = x - (r.left + r.width / 2);
+        const dy = y - (r.top + r.height / 2);
+        const d = Math.hypot(dx, dy) || 1;
+        const k = Math.min(d / 70, 1) * 3.6;
+        p.setAttribute('transform', `translate(${(dx / d) * k} ${(dy / d) * k})`);
+      });
+    card.addEventListener('pointermove', (e) => look(e.clientX, e.clientY));
+    card.addEventListener('pointerleave', () => pupils.forEach((p) => p.removeAttribute('transform')));
+  }
+</script>

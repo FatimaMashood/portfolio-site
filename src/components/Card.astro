@@ -1,0 +1,62 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import CoverFrame from './covers/CoverFrame.astro';
+import StepCover from './covers/StepCover.astro';
+import PhotoCover from './covers/PhotoCover.astro';
+import HoverSwapCover from './covers/HoverSwapCover.astro';
+import PosterCreaturesCover from './covers/PosterCreaturesCover.astro';
+import ChaseCover from './covers/ChaseCover.astro';
+import SchematicCover from './covers/SchematicCover.astro';
+
+type CardEffect = 'meta' | 'cci' | 'mobility' | 'v2' | 'thesis' | 'collate' | 'workflow' | 'talis';
+
+interface Props {
+  entry: CollectionEntry<'projects'>;
+  fx: CardEffect;
+}
+
+const { entry, fx } = Astro.props;
+const { title, slug, subtitle } = entry.data;
+const evidenceLabels: Record<string, string> = {
+  'meta-media-sovereign-bacteria': 'group project',
+  'cat-computer-interaction': 'pilot, 3 cats',
+  'inclusive-mobility': '2018 service proposal',
+  'v2-hear-me-out': 'V2_, 2023',
+  thesis: '7 dyads',
+  'research-workflows': 'team concept + n=9 survey',
+  'talis-professional-development': 'n=1,179, unweighted',
+  'media-language-victim-blaming': 'TOI crime news, UP 2019',
+};
+const descriptions: Record<string, string> = {
+  'meta-media-sovereign-bacteria': 'This group-project photograph shows sauerkraut jars, two fictional passports with fingerprint seals and fictional state names, and small fingerprint flags in a bowl of sauerkraut, without showing people.',
+  'cat-computer-interaction': 'Our drawing of the three-cat pilot setup: a black cat on a pink mat and a fish toy swinging from a rod above it. On hover or keyboard focus the toy moves along its dotted path and the cat follows it.',
+  'inclusive-mobility': 'A white Suzuki Bolan van in side view, the vehicle the 2018 group service proposal for wheelchair users in Karachi builds on. On hover or keyboard focus a ramp diagram labelled ramp length and rise fades in.',
+  'v2-hear-me-out': 'This photograph of the V2_ 2023 group installation shows a red phone booth with a hanging handset and labelled decoder and volume controls, without people.',
+  thesis: 'Hand-drawn schematic of the thesis setup. Two players each wear a finger pulse sensor, A0 and A1, wired to one Arduino, with a second drawing of the Arduino and mini-breadboard inside the box. On hover or keyboard focus a small green pulse travels from each sensor to the Arduino, out of step with each other.',
+  'research-workflows': 'The two lilac creatures from the collate group poster, one at each side facing each other on black. On hover the creatures open their eyes and follow the pointer. The card also covers an ongoing descriptive survey with nine responses.',
+  'media-language-victim-blaming': 'Bar chart of keyword counts from the course text analysis of Times of India crime reports, with alleged highest and shame second.',
+  'talis-professional-development': 'Individual TALIS 2024 plot comparing assessment self-efficacy for teachers who did and did not take part in each professional-development format.',
+};
+const wideSlugs = new Set<string>();
+const layout = wideSlugs.has(slug) ? 'wide' : 'standard';
+const titleId = `project-card-${slug}-title`;
+const summaryId = `project-card-${slug}-summary`;
+const descriptionId = `project-card-${slug}-description`;
+---
+
+<a class:list={['card', `card-${slug}`, layout]} href={`/work/${slug}/`} aria-labelledby={titleId} aria-describedby={`${summaryId} ${descriptionId}`} data-fx={fx} data-project={slug}>
+  <CoverFrame evidence={evidenceLabels[slug] ?? 'project'} description={descriptions[slug] ?? 'Project cover.'} descriptionId={descriptionId} wide={layout === 'wide'}>
+        {slug === 'meta-media-sovereign-bacteria' && <PhotoCover src="/images/meta-media-sovereign-bacteria/meta-05" avif={false} position="50% 50%" />}
+        {slug === 'cat-computer-interaction' && <ChaseCover />}
+    {slug === 'inclusive-mobility' && <HoverSwapCover a="/images/inclusive-mobility/mobility-03-suzuki-bolan" b="/images/inclusive-mobility/mobility-04-ramp-diagram" />}
+    {slug === 'v2-hear-me-out' && <PhotoCover src="/images/v2-hear-me-out/_MG_4946" position="50% 50%" />}
+    {slug === 'thesis' && <SchematicCover src="/images/thesis/schematic.webp" />}
+    {slug === 'research-workflows' && <PosterCreaturesCover src="/images/research-workflows/collate-trio.webp" />}
+    {slug === 'media-language-victim-blaming' && <PhotoCover src="/images/media-language-victim-blaming/media-language-victim-blaming-keyword-search" avif={false} fit="contain" />}
+    {slug === 'talis-professional-development' && <PhotoCover src="/images/talis-professional-development/talis-professional-development-comparison" avif={false} fit="contain" />}
+  </CoverFrame>
+  <div class="text">
+    <h2 id={titleId}>{title}</h2>
+    <p id={summaryId}>{subtitle}</p>
+  </div>
+</a>

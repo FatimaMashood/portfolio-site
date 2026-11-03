@@ -1,0 +1,17 @@
+---
+interface Props {
+  src: string;
+  avif?: boolean;
+  fit?: 'cover' | 'contain';
+  position?: string;
+  eager?: boolean;
+}
+
+const { src, avif = true, fit = 'cover', position = 'center', eager = false } = Astro.props;
+---
+
+<picture class="cover-picture">
+  {avif && <source type="image/avif" srcset={`${src}-600.avif 600w, ${src}-1200.avif 1200w`} sizes="(min-width: 901px) 66vw, 100vw" />}
+  <source type="image/webp" srcset={`${src}-600.webp 600w, ${src}-1200.webp 1200w`} sizes="(min-width: 901px) 66vw, 100vw" />
+  <img class="cover-photo" src={`${src}-1200.webp`} alt="" loading={eager ? 'eager' : 'lazy'} decoding="async" style={`object-fit:${fit};object-position:${position}`} />
+</picture>

@@ -1,0 +1,18 @@
+---
+interface Props {
+  srcs: string[];
+  bg?: string;
+  fit?: 'cover' | 'contain';
+  position?: string;
+  pad?: string;
+  seconds?: number;
+  positions?: string[];
+}
+
+// ponytail: pure CSS, keyframes exist for 3, 4 and 5 frames only
+const { srcs, bg = '#000', fit = 'cover', position = 'center', pad = '0', seconds = 2.8, positions = [] } = Astro.props;
+---
+
+<div class={`step-cover step-${srcs.length}`} style={`--s:${seconds}s;--bg:${bg};--fit:${fit};--pos:${position};--pad:${pad}`}>
+  {srcs.map((src, i) => <img src={src} alt="" loading="eager" decoding="async" style={`--i:${i}${positions[i] ? `;--pos:${positions[i]}` : ''}`} />)}
+</div>
