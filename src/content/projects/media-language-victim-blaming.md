@@ -1,11 +1,11 @@
 ---
 title: "Media language and victim-blaming narratives"
 slug: media-language-victim-blaming
-subtitle: "I analysed Times of India crime reports from Uttar Pradesh in 2019 for language associated with victim-blaming narratives."
+subtitle: "An analysis of the Times of India crime reports from Uttar Pradesh in 2019, exploring whether their language contributes to victim-blaming narratives."
 category: research
-meta: "Course research report | Digital Humanities | Leiden University | 2023"
-caption: "Course research report | Leiden University | 2023"
-summary: "For a research report in a Digital Humanities course at Leiden University, I analysed language in Times of India crime reports from Uttar Pradesh in 2019 to ask whether it contributed to victim-blaming narratives. The keyword counts included doubt-related terms, while sentiment and emotion results were consistent with condemnation of the crimes, so the study could not establish whether the reporting cast doubt on victims."
+meta: "Digital humanities | Leiden University | 2023"
+caption: "Digital humanities | 2023"
+summary: "For a research report in a Digital Humanities course at Leiden University, this analysis of Times of India crime reports from Uttar Pradesh in 2019 explored whether their language contributed to victim-blaming narratives. The keyword counts included doubt-related terms, while sentiment and emotion results were consistent with condemnation of the crimes, so the study could not establish whether the reporting cast doubt on victims."
 role: "I wrote this course report and carried out its text analysis."
 collaborators: []
 tools: "Word-frequency analysis, keyword search, pre-trained sentiment and emotion models"
@@ -25,26 +25,26 @@ publish: true
 
 ## Background and question
 
-News reports help people understand events, while their language can also shape how victims, perpetrators and incidents are understood. I used cultivation theory, which proposes that repeated media portrayals can influence beliefs about the world, to frame a question about coverage of violence against women (Gerbner, 2017). Earlier studies have examined how crime reporting assigns sympathy, responsibility and doubt, including coverage of femicide in a Florida newspaper (Taylor, 2009).
+News reports help people understand events, while their language can also shape how victims, perpetrators and incidents are understood. Cultivation theory, which proposes that repeated media portrayals can influence beliefs about the world, frames the question of how violence against women is covered (Gerbner, 2017), and earlier studies have examined how crime reporting assigns sympathy, responsibility and doubt, including coverage of femicide in a Florida newspaper (Taylor, 2009).
 
-Indian research has often centred on specific cases, including the 2012 Delhi gang-rape case and later reporting on nine gang-rape cases (Kaur, 2013; Bhandari, 2021). I focused on Uttar Pradesh, the state covered by the available 2019 dataset. This exploratory course study asked to what extent language in Indian media reporting on violence against women contributed to victim-blaming narratives.
+Indian research has often centred on specific cases, including the 2012 Delhi gang-rape case and later reporting on nine gang-rape cases (Kaur, 2013; Bhandari, 2021). This exploratory course study focused on Uttar Pradesh, the state covered by the available 2019 dataset, and asked to what extent language in Indian media reporting on violence against women contributed to victim-blaming narratives.
 
 ## The process
 
 ### Preparing the text
 
-I worked with a public Kaggle dataset containing Times of India crime news from Uttar Pradesh in 2019. The articles had been collected under search words such as Murder, Kidnapping and Crime against women and manually annotated with reasons for the crimes, which makes it a general crime-news set. I converted the text to lowercase and removed stop words, meaning common words excluded from frequency analysis, before counting terms and preparing visual summaries.
+Using a public Kaggle dataset containing Times of India crime news from Uttar Pradesh in 2019, the analysis began by converting the text to lowercase and removing stop words, meaning common words excluded from frequency analysis, before counting terms and preparing visual summaries. The articles had been collected under search words such as Murder, Kidnapping and Crime against women and manually annotated with reasons for the crimes, which makes it a general crime-news set.
 
-The frequency analysis produced a word cloud, a visual in which more frequent words appear larger, and a bar plot of the most frequent terms, which I show here because it states the counts more clearly than word size.
+The frequency analysis produced a word cloud, a visual in which more frequent words appear larger, and a bar plot of the most frequent terms, which is shown here since it states the counts more clearly than word size.
 
 <figure class="inline-figure is-wide">
   <img src="/images/media-language-victim-blaming/media-language-victim-blaming-top-terms-1200.webp" alt="Bar chart showing the frequency of the most common words in the text, with police and said as the two highest terms." width="1200" height="518" loading="lazy" />
-  <figcaption>Frequency of the most common terms in the text<span class="credit">Course research report | 2023</span></figcaption>
+  <figcaption>Frequency of the most common terms in the text<span class="credit">Digital humanities | 2023</span></figcaption>
 </figure>
 
 ### Searching for language patterns
 
-I searched for terms drawn from the literature, including shame, defiance, honour, allege and alleged, claim, confess and complained. I then used pre-trained models for sentiment analysis, a method for classifying language as negative, neutral or positive, and emotion recognition, which identifies emotions represented in the text.
+Terms drawn from the literature, including shame, defiance, honour, allege and alleged, claim, confess and complained, were searched for in the text, and pre-trained models were then applied for sentiment analysis, a method for classifying language as negative, neutral or positive, and for emotion recognition, which identifies emotions represented in the text.
 
 ## Findings
 
@@ -52,25 +52,25 @@ The text contained 75,828 words, with police appearing 1,617 times, said 1,574, 
 
 <figure class="inline-figure is-wide">
   <img src="/images/media-language-victim-blaming/media-language-victim-blaming-keyword-search-1200.webp" alt="Bar chart showing keyword counts for shame, defiance, honour, allege, alleged, claim, confess and complained." width="1200" height="945" loading="lazy" />
-  <figcaption>Counts for terms drawn from the literature<span class="credit">Course research report | 2023</span></figcaption>
+  <figcaption>Counts for terms drawn from the literature<span class="credit">Digital humanities | 2023</span></figcaption>
 </figure>
 
-The sentiment pie shows about three quarters negative sentiment, about a quarter neutral sentiment and no positive category. The emotion pie ranks fear first, followed by sadness, disgust and anger, with anticipation small and joy negligible. These results are consistent with condemnation of the crimes, although the models do not show whom or what the negative language is directed at. The prominence of fear may indicate that the language evokes empathy for victims, which I treat as a hypothesis for later analysis.
+The sentiment pie shows about three quarters negative sentiment, about a quarter neutral sentiment and no positive category. The emotion pie ranks fear first, followed by sadness, disgust and anger, with anticipation small and joy negligible. These results are consistent with condemnation of the crimes, although the models do not show whom or what the negative language is directed at. The prominence of fear may indicate that the language evokes empathy for victims, which remains a hypothesis for later analysis.
 
 <figure class="inline-figure is-small">
   <img src="/images/media-language-victim-blaming/media-language-victim-blaming-sentiment-1200.webp" alt="Pie chart showing about three quarters negative sentiment, about a quarter neutral sentiment and no positive sentiment." width="1119" height="1200" loading="lazy" />
-  <figcaption>Sentiment categories assigned to the text<span class="credit">Course research report | 2023</span></figcaption>
+  <figcaption>Sentiment categories assigned to the text<span class="credit">Digital humanities | 2023</span></figcaption>
 </figure>
 
 <figure class="inline-figure is-small">
   <img src="/images/media-language-victim-blaming/media-language-victim-blaming-emotion-1200.webp" alt="Pie chart showing fear as the largest emotion, followed by sadness, disgust, anger, anticipation and negligible joy." width="1200" height="675" loading="lazy" />
-  <figcaption>Emotion categories assigned to the text<span class="credit">Course research report | 2023</span></figcaption>
+  <figcaption>Emotion categories assigned to the text<span class="credit">Digital humanities | 2023</span></figcaption>
 </figure>
 
-Doubt-related terms such as alleged were therefore present alongside sentiment and emotion results that were consistent with condemnation. I did not examine the context of those terms or of fear, so the study could not establish whether the reporting cast doubt on victims. The empathy reading remains tentative and makes no claim about how readers responded.
+Doubt-related terms such as alleged were therefore present alongside sentiment and emotion results that were consistent with condemnation. The context of those terms and of fear was not examined, so the study could not establish whether the reporting cast doubt on victims. The empathy reading remains tentative and makes no claim about how readers responded.
 
 ## Limitations and next steps
 
-The study was limited to one English-language newspaper, one year and one state, and it did not examine the context in which the keywords or fear appeared. The dataset covered crime news more broadly and I did not document a filter for violence against women, which limits what the results say about the question. The report also does not name the sentiment and emotion models or describe how they were validated, and accused and alleged can be routine terms in legal reporting about suspects, so counts of them alone cannot establish a victim-blaming function.
+The study was limited to one English-language newspaper, one year and one state, and it did not examine the context in which the keywords or fear appeared. The dataset covered crime news more broadly and no filter for violence against women was documented, which limits what the results say about the question. The report also does not name the sentiment and emotion models or describe how they were validated, and accused and alleged can be routine terms in legal reporting about suspects, so counts of them alone cannot establish a victim-blaming function.
 
-I would next examine how reporting styles relate to public attitudes over time, compare regional newspapers and connect language patterns with crime statistics. A fuller analysis could also inspect the contexts of the keywords and fear, which this exploratory study left open.
+Next steps could include examining how reporting styles relate to public attitudes over time, comparing regional newspapers and connecting language patterns with crime statistics, while a fuller analysis could also inspect the contexts of the keywords and fear, which this exploratory study left open.
