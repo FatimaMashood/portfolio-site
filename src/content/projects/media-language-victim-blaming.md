@@ -1,7 +1,7 @@
 ---
 title: "Media language and victim-blaming narratives"
 slug: media-language-victim-blaming
-subtitle: "An analysis of the Times of India crime reports from Uttar Pradesh in 2019, exploring whether their language contributes to victim-blaming narratives."
+subtitle: "A text analysis of Times of India crime reports from Uttar Pradesh in 2019, exploring victim-blaming narratives in their language."
 category: research
 meta: "Digital humanities | Leiden University | 2023"
 caption: "Digital humanities | 2023"
