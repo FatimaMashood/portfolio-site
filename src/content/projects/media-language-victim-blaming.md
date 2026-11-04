@@ -39,7 +39,7 @@ The frequency analysis produced a word cloud, a visual in which more frequent wo
 
 <figure class="inline-figure is-wide">
   <img src="/images/media-language-victim-blaming/media-language-victim-blaming-top-terms-1200.webp" alt="Bar chart showing the frequency of the most common words in the text, with police and said as the two highest terms." width="1200" height="518" loading="lazy" />
-  <figcaption>Frequency of the most common terms in the text<span class="credit">Digital humanities | 2023</span></figcaption>
+  <figcaption>Frequency of the most common terms in the text</figcaption>
 </figure>
 
 ### Searching for language patterns
@@ -52,19 +52,19 @@ The text contained 75,828 words, with police appearing 1,617 times, said 1,574, 
 
 <figure class="inline-figure is-wide">
   <img src="/images/media-language-victim-blaming/media-language-victim-blaming-keyword-search-1200.webp" alt="Bar chart showing keyword counts for shame, defiance, honour, allege, alleged, claim, confess and complained." width="1200" height="945" loading="lazy" />
-  <figcaption>Counts for terms drawn from the literature<span class="credit">Digital humanities | 2023</span></figcaption>
+  <figcaption>Counts for terms drawn from the literature</figcaption>
 </figure>
 
 The sentiment pie shows about three quarters negative sentiment, about a quarter neutral sentiment and no positive category. The emotion pie ranks fear first, followed by sadness, disgust and anger, with anticipation small and joy negligible. These results are consistent with condemnation of the crimes, although the models do not show whom or what the negative language is directed at. The prominence of fear may indicate that the language evokes empathy for victims, which remains a hypothesis for later analysis.
 
 <figure class="inline-figure is-small">
   <img src="/images/media-language-victim-blaming/media-language-victim-blaming-sentiment-1200.webp" alt="Pie chart showing about three quarters negative sentiment, about a quarter neutral sentiment and no positive sentiment." width="1119" height="1200" loading="lazy" />
-  <figcaption>Sentiment categories assigned to the text<span class="credit">Digital humanities | 2023</span></figcaption>
+  <figcaption>Sentiment categories assigned to the text</figcaption>
 </figure>
 
 <figure class="inline-figure is-small">
   <img src="/images/media-language-victim-blaming/media-language-victim-blaming-emotion-1200.webp" alt="Pie chart showing fear as the largest emotion, followed by sadness, disgust, anger, anticipation and negligible joy." width="1200" height="675" loading="lazy" />
-  <figcaption>Emotion categories assigned to the text<span class="credit">Digital humanities | 2023</span></figcaption>
+  <figcaption>Emotion categories assigned to the text</figcaption>
 </figure>
 
 Doubt-related terms such as alleged were therefore present alongside sentiment and emotion results that were consistent with condemnation. The context of those terms and of fear was not examined, so the study could not establish whether the reporting cast doubt on victims. The empathy reading remains tentative and makes no claim about how readers responded.
