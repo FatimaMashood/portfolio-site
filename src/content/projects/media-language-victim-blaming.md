@@ -33,7 +33,7 @@ Indian research has often centred on specific cases, including the 2012 Delhi ga
 
 ### Preparing the text
 
-Using a public Kaggle dataset containing Times of India crime news from Uttar Pradesh in 2019, the analysis began by converting the text to lowercase and removing stop words, meaning common words excluded from frequency analysis, before counting terms and preparing visual summaries. The articles had been collected under search words such as Murder, Kidnapping and Crime against women and manually annotated with reasons for the crimes, which makes it a general crime-news set.
+Using a public Kaggle dataset containing Times of India crime news from Uttar Pradesh in 2019, the analysis began by converting the text to lowercase and removing stop words, meaning common words excluded from frequency analysis, before counting terms and preparing visual summaries. The articles had been collected under search words such as Murder, Kidnapping and Crime against women and manually annotated with reasons for the crimes, so the dataset is a general collection of crime news.
 
 The frequency analysis produced a word cloud, a visual in which more frequent words appear larger, and a bar plot of the most frequent terms, which is shown here since it states the counts more clearly than word size.
 
@@ -48,14 +48,14 @@ Terms drawn from the literature, including shame, defiance, honour, allege and a
 
 ## Findings
 
-The text contained 75,828 words, with police appearing 1,617 times, said 1,574, accused 550, year 487 and girl 470. The keyword search counted alleged 131 times, shame 54, complained 14, honour 11, claim 8, confess 1, defiance 0 and allege 0 in the plotted series.
+The text contained 75,828 words, with police appearing 1,617 times, said 1,574, accused 550, year 487 and girl 470. The keyword search counted alleged 131 times, shame 54, complained 14, honour 11, claim 8, confess 1, defiance 0 and allege 0 in the chart.
 
 <figure class="inline-figure is-wide">
   <img src="/images/media-language-victim-blaming/media-language-victim-blaming-keyword-search-1200.webp" alt="Bar chart showing keyword counts for shame, defiance, honour, allege, alleged, claim, confess and complained." width="1200" height="945" loading="lazy" />
   <figcaption>Counts for terms drawn from the literature</figcaption>
 </figure>
 
-The sentiment pie shows about three quarters negative sentiment, about a quarter neutral sentiment and no positive category. The emotion pie ranks fear first, followed by sadness, disgust and anger, with anticipation small and joy negligible. These results are consistent with condemnation of the crimes, although the models do not show whom or what the negative language is directed at. The prominence of fear may indicate that the language evokes empathy for victims, which remains a hypothesis for later analysis.
+The sentiment pie chart shows about three quarters negative sentiment, about a quarter neutral sentiment and no positive category. The emotion pie chart ranks fear first, followed by sadness, disgust and anger, with anticipation small and joy negligible. These results are consistent with condemnation of the crimes, although the models do not show whom or what the negative language is directed at. The prominence of fear may indicate that the language evokes empathy for victims, which remains a hypothesis for later analysis.
 
 <figure class="inline-figure is-small">
   <img src="/images/media-language-victim-blaming/media-language-victim-blaming-sentiment-1200.webp" alt="Pie chart showing about three quarters negative sentiment, about a quarter neutral sentiment and no positive sentiment." width="1119" height="1200" loading="lazy" />
@@ -67,10 +67,10 @@ The sentiment pie shows about three quarters negative sentiment, about a quarter
   <figcaption>Emotion categories assigned to the text</figcaption>
 </figure>
 
-Doubt-related terms such as alleged were therefore present alongside sentiment and emotion results that were consistent with condemnation. The context of those terms and of fear was not examined, so the study could not establish whether the reporting cast doubt on victims. The empathy reading remains tentative and makes no claim about how readers responded.
+Doubt-related terms such as alleged were present alongside sentiment and emotion results that were consistent with condemnation. The context of those terms and of fear was not examined, so the study could not establish whether the reporting cast doubt on victims. The empathy reading remains tentative and makes no claim about how readers responded.
 
 ## Limitations and next steps
 
-The study was limited to one English-language newspaper, one year and one state, and it did not examine the context in which the keywords or fear appeared. The dataset covered crime news more broadly and no filter for violence against women was documented, which limits what the results say about the question. The report also does not name the sentiment and emotion models or describe how they were validated, and accused and alleged can be routine terms in legal reporting about suspects, so counts of them alone cannot establish a victim-blaming function.
+The study was limited to one English-language newspaper, one year and one state, and it did not examine the context in which the keywords or fear appeared. The dataset covered crime news more broadly and no filter for violence against women was documented, which limits what the results say about the question. The sentiment and emotion models are not named and their validation is not described, and accused and alleged can be routine terms in legal reporting about suspects, so counts of them alone cannot establish a victim-blaming function.
 
 Further research could examine how reporting styles relate to public attitudes over time, compare regional newspapers, connect language patterns with crime statistics and analyse the contexts in which the keywords and fear appear, which this exploratory study left open.
