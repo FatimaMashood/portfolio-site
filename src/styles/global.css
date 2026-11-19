@@ -1647,3 +1647,59 @@ h1,
 .article-body .part-sub { margin: -4px 0 0; font-size: 1.125rem; font-weight: 400; color: var(--sub); }
 
 .site-footer .copyright { flex-basis: 100%; margin: 0; color: var(--muted); font-size: 0.8125rem; font-weight: 400; }
+
+/* Elsewhere: image-led sets, caption only */
+.elsewhere-set {
+  width: min(1320px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 16px;
+}
+
+.elsewhere-set h2 {
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.elsewhere-set .set-note {
+  max-width: 52rem;
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.elsewhere-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+}
+
+.elsewhere-grid figure {
+  margin: 0;
+  background: var(--card);
+}
+
+.elsewhere-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.elsewhere-grid figcaption {
+  padding: 10px 12px 12px;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.elsewhere-grid .work-title {
+  display: block;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .elsewhere-grid {
+    grid-template-columns: 1fr;
+  }
+}

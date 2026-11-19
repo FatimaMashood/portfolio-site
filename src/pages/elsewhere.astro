@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import { sets } from '../data/elsewhere';
+
+const intro = 'Photography and illustration from outside my research: self-portraits and a self-directed series made for photography courses at Habib University, and comic pages from an illustration course.';
+const src = (file: string) => `/images/elsewhere/${file}`;
+const slug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+---
+<Base title="Elsewhere | Fatima Mashood" description={intro}>
+  <main id="content">
+    <header class="page-intro">
+      <h1>Elsewhere</h1>
+      <p>{intro}</p>
+    </header>
+    {sets.map((set) => (
+      <section class="elsewhere-set" aria-labelledby={`set-${slug(set.title)}`}>
+        <h2 id={`set-${slug(set.title)}`}>{set.title}</h2>
+        <p class="set-note">{set.note}</p>
+        <div class="elsewhere-grid">
+          {set.works.map((work) => (
+            <figure>
+              <img
+                src={`${src(work.file)}-1200.webp`}
+                srcset={`${src(work.file)}-600.webp 600w, ${src(work.file)}-1200.webp 1200w`}
+                sizes="(min-width: 760px) 50vw, 100vw"
+                alt={work.alt}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                <span class="work-title">{work.title}</span>
+                {[work.medium, work.year, '© Fatima Mashood'].filter(Boolean).join(' · ')}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    ))}
+  </main>
+</Base>
