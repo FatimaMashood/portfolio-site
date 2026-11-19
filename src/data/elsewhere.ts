@@ -12,9 +12,10 @@ export interface Page {
 
 // Every work is a book: one image at a time, click the right/left half to turn.
 // The first page is the one visitors see, so put the strongest image first.
-// All books share one 4:3 frame so rows line up; images are fitted inside on the page background, never cropped.
+// Each book fills its column at the shape of its first page; later pages are fitted inside, never cropped.
 export interface Work {
   pages: Page[];
+  fill?: string; // colour behind later pages whose shape differs from the first (e.g. black for photos on black)
 }
 
 export interface WorkSet {
@@ -96,7 +97,7 @@ export const sets: WorkSet[] = [
         pages: [
           {
             file: 'illustration-vision-board',
-            source: 'illustrations new/vision-board-transparent.png',
+            source: 'illustrations new/vision-board-sheet.jpg',
             alt: 'Single-line drawing in blue pencil: a Dutch church tower with a clock and a waving flag beside a climbing vine, and a woman walking a bicycle with a front basket.',
           },
         ],
@@ -109,6 +110,7 @@ export const sets: WorkSet[] = [
     newRow: true,
     works: [
       {
+        fill: '#000',
         pages: [
           {
             file: 'self-portrait-01',

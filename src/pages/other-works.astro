@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import sharp from 'sharp';
 import { sets, type Work } from '../data/elsewhere';
 
 const exhibits = (await getCollection('exhibits')).sort((a, b) => a.data.order - b.data.order);
@@ -11,10 +12,27 @@ const srcset = (file: string) => `${src(file)}-600.webp 600w, ${src(file)}-1200.
 // One flat grid, in order: each set's first cell carries its heading, later cells keep the
 // heading row empty so images in a row stay level.
 type Cell = { heading?: { title: string; year?: string }; newRow?: boolean } & ({ exhibit: (typeof exhibits)[number]['data'] } | { work: Work });
+// shape of each book = its first page
+const ratio = async (work: Work) => {
+  const { width, height } = await sharp(`public/images/elsewhere/${work.pages[0].file}-1200.webp`).metadata();
+  return `${width} / ${height}`;
+};
 const cells: Cell[] = [
   ...exhibits.map(({ data }, i) => ({ heading: i === 0 ? { title: 'exhibits' } : undefined, exhibit: data })),
   ...sets.flatMap((set) => set.works.map((work, i) => ({ heading: i === 0 ? set : undefined, newRow: i === 0 && set.newRow, work }))),
 ];
+const ratios = new Map(await Promise.all(cells.filter((c) => 'work' in c).map(async (c) => [(c as { work: Work }).work, await ratio((c as { work: Work }).work)] as const)));
+
+// keep an empty heading line only where the other cell in the same row has a heading
+let col = 0;
+const rowOf: number[] = [];
+let row = 0;
+for (const cell of cells) {
+  if (cell.newRow && col !== 0) { row++; col = 0; }
+  rowOf.push(row);
+  if (++col === 2) { row++; col = 0; }
+}
+const rowHasHeading = new Set(cells.flatMap((c, i) => (c.heading ? [rowOf[i]] : [])));
 ---
 <Base title="Other works | Fatima Mashood" description="Photography, illustration and design by Fatima Mashood.">
   <main id="content">
@@ -22,11 +40,11 @@ const cells: Cell[] = [
       <h1>Other works</h1>
     </header>
     <div class="other-grid">
-      {cells.map((cell) => (
+      {cells.map((cell, i) => (
         <div class:list={['other-cell', { 'new-row': cell.newRow }]}>
           {cell.heading ? (
             <h2 class="cell-heading">{cell.heading.title} {cell.heading.year && <span class="set-year">{cell.heading.year}</span>}</h2>
-          ) : (
+          ) : rowHasHeading.has(rowOf[i]) && (
             <p class="cell-heading spacer" aria-hidden="true">&nbsp;</p>
           )}
           {'exhibit' in cell ? (
@@ -37,7 +55,7 @@ const cells: Cell[] = [
             </a>
           ) : (
             <figure class="book" data-book>
-              <div class="book-pages">
+              <div class="book-pages" style={`aspect-ratio:${ratios.get(cell.work)}${cell.work.fill ? `;background:${cell.work.fill}` : ''}`}>
                 {cell.work.pages.map((page, i) => (
                   <img
                     class="book-page"
