@@ -23,4 +23,19 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { projects };
+// Exhibition reviews, linked from the other page's exhibits set.
+const exhibits = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/exhibits' }),
+  schema: z.object({
+    title: z.string(),
+    slug: z.string(),
+    venue: z.string(),
+    caption: z.string(),
+    summary: z.string(),
+    cover: z.string(),
+    cover_alt: z.string(),
+    order: z.number(),
+  }),
+});
+
+export const collections = { projects, exhibits };

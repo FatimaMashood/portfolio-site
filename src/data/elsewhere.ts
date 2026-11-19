@@ -164,3 +164,17 @@ export const sets: WorkSet[] = [
     ],
   },
 ];
+
+// Photos used by the exhibit reviews (src/content/exhibits/*.md); the script builds them like the rest.
+const boerhaave = 'exhibitions/Boerhave Museum/Images/';
+const mu = 'exhibitions/MU hybrid art house /MU Eindhoven/Attachments/';
+
+export const exhibitImages: Pick<Page, 'file' | 'source'>[] = [
+  { file: 'exhibit-boerhaave-theatre', source: `${boerhaave}IMG_8972.jpeg` },
+  { file: 'exhibit-boerhaave-jars', source: `${boerhaave}IMG_8947.jpeg` },
+  { file: 'exhibit-boerhaave-manikin', source: `${boerhaave}IMG_8964.jpeg` },
+  { file: 'exhibit-boerhaave-prints', source: `${boerhaave}IMG_8940.jpeg` },
+  { file: 'exhibit-mu-reach', source: `${mu}7D336C3D-23D2-4DED-9BD0-DED701824593.jpeg` },
+  { file: 'exhibit-mu-shelf', source: `${mu}8024A27D-F156-4B38-AE95-F28ABE364DFF.jpeg` },
+  { file: 'exhibit-mu-artefacts', source: `${mu}D73CB04B-8E61-4DC2-8B7A-3F4AA5AD7A1B.jpeg` },
+];

@@ -1694,6 +1694,37 @@ h1,
   height: auto;
 }
 
+.exhibit-card {
+  display: block;
+  background: var(--card);
+  color: inherit;
+  text-decoration: none;
+}
+
+.exhibit-card img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.exhibit-card .exhibit-title {
+  display: block;
+  padding: 12px 12px 0;
+  font-weight: 700;
+}
+
+.exhibit-card .exhibit-venue {
+  display: block;
+  padding: 2px 12px 12px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.exhibit-card:hover .exhibit-title,
+.exhibit-card:focus-visible .exhibit-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* Book: comic pages that turn around the left edge */
 .book-pages {
   position: relative;

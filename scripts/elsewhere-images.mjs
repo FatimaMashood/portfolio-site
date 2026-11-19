@@ -6,7 +6,7 @@ import { existsSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
-import { sets } from '../src/data/elsewhere.ts';
+import { exhibitImages, sets } from '../src/data/elsewhere.ts';
 
 const refs = fileURLToPath(new URL('../../fama-portfolio-references/', import.meta.url));
 const out = fileURLToPath(new URL('../public/images/elsewhere/', import.meta.url));
@@ -15,7 +15,7 @@ mkdirSync(out, { recursive: true });
 
 const works = sets.flatMap((set) => set.works);
 
-for (const work of works.flatMap((w) => w.pages ?? [w])) {
+for (const work of [...works.flatMap((w) => w.pages ?? [w]), ...exhibitImages]) {
   for (const width of [600, 1200]) {
     const target = join(out, `${work.file}-${width}.webp`);
     if (!force && existsSync(target)) continue;
