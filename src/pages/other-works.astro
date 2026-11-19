@@ -14,6 +14,18 @@ const slug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     <header class="page-intro">
       <h1>Other works</h1>
     </header>
+    <section class="elsewhere-set" aria-labelledby="set-exhibits">
+      <h2 id="set-exhibits">exhibits</h2>
+      <div class="elsewhere-grid">
+        {exhibits.map(({ data }) => (
+          <a class="exhibit-card" href={`/other-works/${data.slug}/`}>
+            <img src={`${data.cover}-1200.webp`} srcset={`${data.cover}-600.webp 600w, ${data.cover}-1200.webp 1200w`} sizes="(min-width: 760px) 50vw, 100vw" alt={data.cover_alt} loading="lazy" decoding="async" />
+            <span class="exhibit-title">{data.title}</span>
+            <span class="exhibit-venue">{data.venue}</span>
+          </a>
+        ))}
+      </div>
+    </section>
     {sets.map((set) => (
       <section class="elsewhere-set" aria-labelledby={`set-${slug(set.title)}`}>
         <h2 id={`set-${slug(set.title)}`}>{set.title} <span class="set-year">{set.year}</span></h2>
@@ -53,18 +65,6 @@ const slug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
         </div>
       </section>
     ))}
-    <section class="elsewhere-set" aria-labelledby="set-exhibits">
-      <h2 id="set-exhibits">exhibits</h2>
-      <div class="elsewhere-grid">
-        {exhibits.map(({ data }) => (
-          <a class="exhibit-card" href={`/other-works/${data.slug}/`}>
-            <img src={`${data.cover}-1200.webp`} srcset={`${data.cover}-600.webp 600w, ${data.cover}-1200.webp 1200w`} sizes="(min-width: 760px) 50vw, 100vw" alt={data.cover_alt} loading="lazy" decoding="async" />
-            <span class="exhibit-title">{data.title}</span>
-            <span class="exhibit-venue">{data.venue}</span>
-          </a>
-        ))}
-      </div>
-    </section>
   </main>
 </Base>
 

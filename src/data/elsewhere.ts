@@ -31,6 +31,66 @@ const desiGali = 'desi gali new/';
 
 export const sets: WorkSet[] = [
   {
+    title: 'desi gali',
+    year: '2021',
+    works: [
+      {
+        ratio: '1 / 1',
+        pages: [
+          {
+            file: 'desi-gali-01',
+            source: `${desiGali}193261119_1959879867504472_967856048243681487_n.jpg`,
+            alt: 'Menu post headed Ghar ka khana from Desi Gali, Sides and add-ons: papad, achar, hari chutney, chapati, naan and laccha paratha with prices in rupees, hand-lettered on a light grey ground.',
+          },
+          {
+            file: 'desi-gali-02',
+            source: `${desiGali}193390088_1959879630837829_2813066983618305254_n.jpg`,
+            alt: 'Second sides and add-ons menu post: steamed rice, aloo cutlet, kachumbar, palak raita, zeera raita and homemade dahi with prices in rupees.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'illustration',
+    year: '2020',
+    works: [
+      {
+        pages: [
+          {
+            file: 'comic-a-1',
+            source: `${pages}noodle-1.jpg`,
+            alt: 'Page 1 of 3, four panels: a boy asleep, a dream of a bowl of noodles, the boy waking up delighted, and the boy as a chef at the stove.',
+          },
+          {
+            file: 'comic-a-2',
+            source: `${pages}noodle-2.jpg`,
+            alt: 'Page 2 of 3, four panels: a girl worried at a table with a noodle bowl, the girl at a door, the boy lying awake in bed, and a dream of two people holding tickets.',
+          },
+          {
+            file: 'comic-a-3',
+            source: 'Illustration_course_bachelors/IMG_20200618_133545_842.jpg',
+            alt: 'Page 3 of 3, four panels: a phone booking a flight, a plane over a map of Japan, two cooks at their pots, and a book about Japanese food.',
+          },
+        ],
+      },
+      {
+        pages: [
+          {
+            file: 'comic-b-1',
+            source: 'Illustration_course_bachelors/IMG_20200626_143916_387.jpg',
+            alt: 'Page 1 of 2: a dachshund walks along a road under trees saying it loves humans and does not know why humans do not love it, above a street of pink houses with a police car.',
+          },
+          {
+            file: 'comic-b-2',
+            source: `${pages}dog-2.jpg`,
+            alt: 'Page 2 of 2: the same road, now with a hand holding a gun and the dachshund wounded, above a row of prison bars with two hands gripping them.',
+          },
+        ],
+      },
+    ],
+  },
+  {
     title: 'self-portraits',
     year: '2019',
     frame: '3 / 2',
@@ -100,66 +160,6 @@ export const sets: WorkSet[] = [
         file: 'self-directed-09',
         source: `${directed}DSC08693(1).jpg`,
         alt: 'A second teal-lit frontal close-up, wide eyes and parted lips.',
-      },
-    ],
-  },
-  {
-    title: 'illustration',
-    year: '2020',
-    works: [
-      {
-        pages: [
-          {
-            file: 'comic-a-1',
-            source: `${pages}noodle-1.jpg`,
-            alt: 'Page 1 of 3, four panels: a boy asleep, a dream of a bowl of noodles, the boy waking up delighted, and the boy as a chef at the stove.',
-          },
-          {
-            file: 'comic-a-2',
-            source: `${pages}noodle-2.jpg`,
-            alt: 'Page 2 of 3, four panels: a girl worried at a table with a noodle bowl, the girl at a door, the boy lying awake in bed, and a dream of two people holding tickets.',
-          },
-          {
-            file: 'comic-a-3',
-            source: 'Illustration_course_bachelors/IMG_20200618_133545_842.jpg',
-            alt: 'Page 3 of 3, four panels: a phone booking a flight, a plane over a map of Japan, two cooks at their pots, and a book about Japanese food.',
-          },
-        ],
-      },
-      {
-        pages: [
-          {
-            file: 'comic-b-1',
-            source: 'Illustration_course_bachelors/IMG_20200626_143916_387.jpg',
-            alt: 'Page 1 of 2: a dachshund walks along a road under trees saying it loves humans and does not know why humans do not love it, above a street of pink houses with a police car.',
-          },
-          {
-            file: 'comic-b-2',
-            source: `${pages}dog-2.jpg`,
-            alt: 'Page 2 of 2: the same road, now with a hand holding a gun and the dachshund wounded, above a row of prison bars with two hands gripping them.',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: 'desi gali',
-    year: '2021',
-    works: [
-      {
-        ratio: '1 / 1',
-        pages: [
-          {
-            file: 'desi-gali-01',
-            source: `${desiGali}193261119_1959879867504472_967856048243681487_n.jpg`,
-            alt: 'Menu post headed Ghar ka khana from Desi Gali, Sides and add-ons: papad, achar, hari chutney, chapati, naan and laccha paratha with prices in rupees, hand-lettered on a light grey ground.',
-          },
-          {
-            file: 'desi-gali-02',
-            source: `${desiGali}193390088_1959879630837829_2813066983618305254_n.jpg`,
-            alt: 'Second sides and add-ons menu post: steamed rice, aloo cutlet, kachumbar, palak raita, zeera raita and homemade dahi with prices in rupees.',
-          },
-        ],
       },
     ],
   },
