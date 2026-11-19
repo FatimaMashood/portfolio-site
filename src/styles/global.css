@@ -1656,15 +1656,24 @@ h1,
 }
 
 .elsewhere-set h2 {
-  margin: 0 0 4px;
+  margin: 0 0 16px;
   font-size: 1.5rem;
   letter-spacing: -0.02em;
 }
 
-.elsewhere-set .set-note {
-  max-width: 52rem;
-  margin: 0 0 16px;
+.elsewhere-set .set-year {
+  margin-left: 8px;
   color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* sets with a frame ratio: every image sits in the same box, letterboxed on black */
+.elsewhere-grid[data-frame] img {
+  aspect-ratio: var(--frame);
+  object-fit: contain;
+  background: #000;
 }
 
 .elsewhere-grid {
@@ -1683,13 +1692,6 @@ h1,
   display: block;
   width: 100%;
   height: auto;
-}
-
-.elsewhere-grid figcaption {
-  padding: 10px 12px 12px;
-  color: var(--muted);
-  font-size: 0.8125rem;
-  line-height: 1.45;
 }
 
 /* Book: comic pages that turn around the left edge */

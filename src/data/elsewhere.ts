@@ -2,7 +2,8 @@
 // To add a work: put the original in fama-portfolio-references, add an entry here,
 // run `node scripts/elsewhere-images.mjs`, then build.
 // `source` is relative to ../fama-portfolio-references and is only read by that script.
-// Caption is year + name only, by owner's choice; titles go in later when she gives them.
+// No per-image captions (owner's choice); each set shows its year once, beside the heading.
+// frame: optional aspect ratio so mixed-size images in a set line up (letterboxed on black).
 
 export interface Page {
   file: string; // output base name in public/images/elsewhere/
@@ -12,13 +13,13 @@ export interface Page {
 
 // A work is one image, or several pages shown as a book you turn (pages).
 export interface Work extends Partial<Page> {
-  year?: string;
   pages?: Page[];
 }
 
 export interface WorkSet {
   title: string;
-  note: string;
+  year: string;
+  frame?: string;
   works: Work[];
 }
 
@@ -29,38 +30,35 @@ const desiGali = 'desi gali new/';
 
 export const sets: WorkSet[] = [
   {
-    title: 'Self-portraits',
-    note: 'Photography, Habib University.',
+    title: 'self-portraits',
+    year: '2019',
+    frame: '3 / 2',
     works: [
       {
         file: 'self-portrait-01',
         source: `${portraits}FTM06110-2.jpg`,
-        year: '2019',
         alt: 'Self-portrait on a black ground with the head tipped back under sheer white fabric pulled taut over the face.',
       },
       {
         file: 'self-portrait-02',
         source: `${portraits}FTM06111.jpg`,
-        year: '2019',
         alt: 'A second frame of the veiled self-portrait, head tipped back under white fabric on black.',
       },
       {
         file: 'self-portrait-03',
         source: `${portraits}FTM06136.jpg`,
-        year: '2019',
         alt: 'Self-portrait with the head wrapped in white gauze, only the eyes visible, cool light on a black ground.',
       },
       {
         file: 'self-portrait-04',
         source: `${portraits}FTM06170.jpg`,
-        year: '2019',
         alt: 'Side profile lit from one edge, the rest of the face and body falling into black.',
       },
     ],
   },
   {
-    title: 'Self-directed project',
-    note: 'Photography, Habib University.',
+    title: 'self-directed project',
+    year: '2019',
     works: [
       {
         file: 'self-directed-01',
@@ -110,11 +108,10 @@ export const sets: WorkSet[] = [
     ],
   },
   {
-    title: 'Illustration',
-    note: 'Coloured pencil on paper, illustration course, Habib University. Turn the pages.',
+    title: 'illustration',
+    year: '2020',
     works: [
       {
-        year: '2020',
         pages: [
           {
             file: 'comic-a-1',
@@ -134,7 +131,6 @@ export const sets: WorkSet[] = [
         ],
       },
       {
-        year: '2020',
         pages: [
           {
             file: 'comic-b-1',
@@ -151,19 +147,17 @@ export const sets: WorkSet[] = [
     ],
   },
   {
-    title: 'Desi Gali',
-    note: 'Social media design for Desi Gali, a woman-led restaurant in Karachi now known as Kanteen.',
+    title: 'desi gali',
+    year: '2021',
     works: [
       {
         file: 'desi-gali-01',
         source: `${desiGali}193261119_1959879867504472_967856048243681487_n.jpg`,
-        year: '2021',
         alt: 'Menu post headed Ghar ka khana from Desi Gali, Sides and add-ons: papad, achar, hari chutney, chapati, naan and laccha paratha with prices in rupees, hand-lettered on a light grey ground.',
       },
       {
         file: 'desi-gali-02',
         source: `${desiGali}193390088_1959879630837829_2813066983618305254_n.jpg`,
-        year: '2021',
         alt: 'Second sides and add-ons menu post: steamed rice, aloo cutlet, kachumbar, palak raita, zeera raita and homemade dahi with prices in rupees.',
       },
     ],
