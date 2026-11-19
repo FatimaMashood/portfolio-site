@@ -25,6 +25,7 @@ export interface WorkSet {
 const portraits = 'final photography/self-portraits/';
 const directed = 'final photography/self-directed/';
 const pages = '_prepared/illustration/pages/';
+const desiGali = 'desi gali new/';
 
 export const sets: WorkSet[] = [
   {
@@ -146,6 +147,24 @@ export const sets: WorkSet[] = [
             alt: 'Page 2 of 2: the same road, now with a hand holding a gun and the dachshund wounded, above a row of prison bars with two hands gripping them.',
           },
         ],
+      },
+    ],
+  },
+  {
+    title: 'Desi Gali',
+    note: 'Social media design for Desi Gali, a woman-led restaurant in Karachi now known as Kanteen.',
+    works: [
+      {
+        file: 'desi-gali-01',
+        source: `${desiGali}193261119_1959879867504472_967856048243681487_n.jpg`,
+        year: '2021',
+        alt: 'Menu post headed Ghar ka khana from Desi Gali, Sides and add-ons: papad, achar, hari chutney, chapati, naan and laccha paratha with prices in rupees, hand-lettered on a light grey ground.',
+      },
+      {
+        file: 'desi-gali-02',
+        source: `${desiGali}193390088_1959879630837829_2813066983618305254_n.jpg`,
+        year: '2021',
+        alt: 'Second sides and add-ons menu post: steamed rice, aloo cutlet, kachumbar, palak raita, zeera raita and homemade dahi with prices in rupees.',
       },
     ],
   },

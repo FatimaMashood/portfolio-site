@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { sets } from '../data/elsewhere';
 
-const intro = 'Photography and illustration from outside my research: self-portraits and a self-directed project made for photography courses at Habib University, and comics from an illustration course.';
+const intro = 'Photography, illustration and design from outside my research: self-portraits and a self-directed project made for photography courses at Habib University, comics from an illustration course, and social media design for a restaurant in Karachi.';
 const src = (file?: string) => `/images/elsewhere/${file}`;
 const srcset = (file?: string) => `${src(file)}-600.webp 600w, ${src(file)}-1200.webp 1200w`;
 const slug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
