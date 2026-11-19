@@ -37,11 +37,6 @@ export const sets: WorkSet[] = [
       {
         pages: [
           {
-            file: 'desi-gali-mains',
-            source: `${desiGali}N1.png`,
-            alt: 'Menu post headed Ghar ka khana from Desi Gali: chicken and beef khao suey, dum keema, tawa chicken with romali roti and mutton aloo gosht, with prices in rupees, hand-lettered on a light grey ground.',
-          },
-          {
             file: 'desi-gali-01',
             source: `${desiGali}193261119_1959879867504472_967856048243681487_n.jpg`,
             alt: 'Menu post headed Ghar ka khana from Desi Gali, Sides and add-ons: papad, achar, hari chutney, chapati, naan and laccha paratha with prices in rupees, hand-lettered on a light grey ground.',
@@ -50,6 +45,11 @@ export const sets: WorkSet[] = [
             file: 'desi-gali-02',
             source: `${desiGali}193390088_1959879630837829_2813066983618305254_n.jpg`,
             alt: 'Second sides and add-ons menu post: steamed rice, aloo cutlet, kachumbar, palak raita, zeera raita and homemade dahi with prices in rupees.',
+          },
+          {
+            file: 'desi-gali-mains',
+            source: `${desiGali}N1.png`,
+            alt: 'Menu post headed Ghar ka khana from Desi Gali: chicken and beef khao suey, dum keema, tawa chicken with romali roti and mutton aloo gosht, with prices in rupees, hand-lettered on a light grey ground.',
           },
         ],
       },
