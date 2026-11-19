@@ -52,7 +52,7 @@ export const sets: WorkSet[] = [
   },
   {
     title: 'illustration',
-    year: '2020',
+    year: '2020, 2022',
     works: [
       {
         pages: [
@@ -84,6 +84,15 @@ export const sets: WorkSet[] = [
             file: 'comic-b-2',
             source: `${pages}dog-2.jpg`,
             alt: 'Page 2 of 2: the same road, now with a hand holding a gun and the dachshund wounded, above a row of prison bars with two hands gripping them.',
+          },
+        ],
+      },
+      {
+        pages: [
+          {
+            file: 'illustration-vision-board',
+            source: 'illustrations new/vision-board-transparent.png',
+            alt: 'Single-line drawing in blue pencil: a Dutch church tower with a clock and a waving flag beside a climbing vine, and a woman walking a bicycle with a front basket.',
           },
         ],
       },

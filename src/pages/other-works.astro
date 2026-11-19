@@ -50,10 +50,10 @@ const cells: Cell[] = [
                     decoding="async"
                   />
                 ))}
-                <button type="button" class="book-zone prev" data-prev aria-label="Previous page"></button>
-                <button type="button" class="book-zone next" data-next aria-label="Next page"></button>
+                {cell.work.pages.length > 1 && <button type="button" class="book-zone prev" data-prev aria-label="Previous page"></button>}
+                {cell.work.pages.length > 1 && <button type="button" class="book-zone next" data-next aria-label="Next page"></button>}
               </div>
-              <p class="book-status" aria-live="polite">1 / {cell.work.pages.length}</p>
+              {cell.work.pages.length > 1 && <p class="book-status" aria-live="polite">1 / {cell.work.pages.length}</p>}
             </figure>
           )}
         </div>
@@ -66,6 +66,7 @@ const cells: Cell[] = [
   // Page turn: click the right half for the next page, the left half for the previous one.
   // Earlier pages rotate away around the spine (left edge), revealing the next.
   for (const book of document.querySelectorAll<HTMLElement>('[data-book]')) {
+    if (!book.querySelector('[data-next]')) continue; // single page, nothing to turn
     const pages = [...book.querySelectorAll<HTMLElement>('.book-page')];
     const prev = book.querySelector<HTMLButtonElement>('[data-prev]')!;
     const next = book.querySelector<HTMLButtonElement>('[data-next]')!;
