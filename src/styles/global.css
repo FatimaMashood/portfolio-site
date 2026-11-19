@@ -1648,20 +1648,36 @@ h1,
 
 .site-footer .copyright { flex-basis: 100%; margin: 0; color: var(--muted); font-size: 0.8125rem; font-weight: 400; }
 
-/* Elsewhere: image-led sets, caption only */
-.elsewhere-set {
+/* Other works: one flat two-column grid of sets, each shown as one turnable image */
+.other-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 32px 24px;
   width: min(1320px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 24px 0 16px;
+  padding: 8px 0 32px;
 }
 
-.elsewhere-set h2 {
-  margin: 0 0 16px;
+.other-grid figure {
+  margin: 0;
+}
+
+.other-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cell-heading {
+  margin: 0 0 12px;
   font-size: 1.5rem;
+  font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
-.elsewhere-set .set-year {
+.set-year {
   margin-left: 8px;
   color: var(--muted);
   font-size: 0.875rem;
@@ -1669,29 +1685,14 @@ h1,
   letter-spacing: 0;
 }
 
-/* sets with a frame ratio: every image sits in the same box, letterboxed on black */
-.elsewhere-grid[data-frame] img {
-  aspect-ratio: var(--frame);
-  object-fit: contain;
-  background: #000;
-}
+@media (max-width: 760px) {
+  .other-grid {
+    grid-template-columns: 1fr;
+  }
 
-.elsewhere-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: 24px;
-}
-
-.elsewhere-grid figure {
-  margin: 0;
-  background: var(--card);
-}
-
-.elsewhere-grid img {
-  display: block;
-  width: 100%;
-  height: auto;
+  .cell-heading.spacer {
+    display: none;
+  }
 }
 
 .exhibit-card {
@@ -1728,11 +1729,11 @@ h1,
 /* Book: comic pages that turn around the left edge */
 .book-pages {
   position: relative;
-  aspect-ratio: 940 / 1024;
+  aspect-ratio: 4 / 3;
   perspective: 2400px;
 }
 
-.elsewhere-grid .book-page {
+.other-grid .book-page {
   position: absolute;
   inset: 0;
   height: 100%;
@@ -1785,14 +1786,12 @@ h1,
   text-align: center;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .elsewhere-grid .book-page {
-    transition: none;
-  }
+.book.dark .book-page {
+  background: #000;
 }
 
-@media (max-width: 760px) {
-  .elsewhere-grid {
-    grid-template-columns: 1fr;
+@media (prefers-reduced-motion: reduce) {
+  .other-grid .book-page {
+    transition: none;
   }
 }

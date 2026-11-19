@@ -15,7 +15,7 @@ mkdirSync(out, { recursive: true });
 
 const works = sets.flatMap((set) => set.works);
 
-for (const work of [...works.flatMap((w) => w.pages ?? [w]), ...exhibitImages]) {
+for (const work of [...works.flatMap((w) => w.pages), ...exhibitImages]) {
   for (const width of [600, 1200]) {
     const target = join(out, `${work.file}-${width}.webp`);
     if (!force && existsSync(target)) continue;
