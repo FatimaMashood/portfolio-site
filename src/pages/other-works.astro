@@ -30,12 +30,10 @@ const slug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
                     decoding="async"
                   />
                 ))}
+                <button type="button" class="book-zone prev" data-prev aria-label="Previous page"></button>
+                <button type="button" class="book-zone next" data-next aria-label="Next page"></button>
               </div>
-              <div class="book-controls">
-                <button type="button" data-prev aria-label="Previous page">←</button>
-                <span class="book-status" aria-live="polite">1 / {work.pages.length}</span>
-                <button type="button" data-next aria-label="Next page">→</button>
-              </div>
+              <p class="book-status" aria-live="polite">1 / {work.pages.length}</p>
             </figure>
           ) : (
             <figure>
@@ -56,7 +54,8 @@ const slug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 </Base>
 
 <script>
-  // Page turn: earlier pages rotate away around the spine (left edge), revealing the next.
+  // Page turn: click the right half for the next page, the left half for the previous one.
+  // Earlier pages rotate away around the spine (left edge), revealing the next.
   for (const book of document.querySelectorAll<HTMLElement>('[data-book]')) {
     const pages = [...book.querySelectorAll<HTMLElement>('.book-page')];
     const prev = book.querySelector<HTMLButtonElement>('[data-prev]')!;
@@ -78,10 +77,6 @@ const slug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     };
     prev.addEventListener('click', () => go(-1));
     next.addEventListener('click', () => go(1));
-    book.querySelector('.book-pages')!.addEventListener('click', (event) => {
-      const box = (event.currentTarget as HTMLElement).getBoundingClientRect();
-      go((event as MouseEvent).clientX - box.left > box.width / 2 ? 1 : -1);
-    });
     show();
   }
 </script>

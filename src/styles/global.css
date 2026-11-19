@@ -1699,7 +1699,6 @@ h1,
   position: relative;
   aspect-ratio: 940 / 1024;
   perspective: 2400px;
-  cursor: pointer;
 }
 
 .elsewhere-grid .book-page {
@@ -1717,30 +1716,42 @@ h1,
   transform: rotateY(-180deg);
 }
 
-.book-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
+.book-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 50%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.book-zone.prev {
+  left: 0;
+  cursor: w-resize;
+}
+
+.book-zone.next {
+  right: 0;
+  cursor: e-resize;
+}
+
+.book-zone:disabled {
+  cursor: default;
+}
+
+.book-zone:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: -3px;
+}
+
+.book-status {
+  margin: 0;
   padding: 10px 12px 0;
   color: var(--muted);
   font-size: 0.8125rem;
-}
-
-.book-controls button {
-  min-width: 44px;
-  min-height: 44px;
-  border: 1px solid #d1d5db;
-  background: var(--card);
-  color: var(--ink);
-  font: inherit;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.book-controls button:disabled {
-  opacity: 0.35;
-  cursor: default;
+  text-align: center;
 }
 
 @media (prefers-reduced-motion: reduce) {
