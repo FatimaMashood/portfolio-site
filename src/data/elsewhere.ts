@@ -97,11 +97,6 @@ export const sets: WorkSet[] = [
       {
         pages: [
           {
-            file: 'self-portrait-03',
-            source: `${portraits}FTM06136.jpg`,
-            alt: 'Self-portrait with the head wrapped in white gauze, only the eyes visible, cool light on a black ground.',
-          },
-          {
             file: 'self-portrait-01',
             source: `${portraits}FTM06110-2.jpg`,
             alt: 'Self-portrait on a black ground with the head tipped back under sheer white fabric pulled taut over the face.',
@@ -110,6 +105,11 @@ export const sets: WorkSet[] = [
             file: 'self-portrait-02',
             source: `${portraits}FTM06111.jpg`,
             alt: 'A second frame of the veiled self-portrait, head tipped back under white fabric on black.',
+          },
+          {
+            file: 'self-portrait-03',
+            source: `${portraits}FTM06136.jpg`,
+            alt: 'Self-portrait with the head wrapped in white gauze, only the eyes visible, cool light on a black ground.',
           },
           {
             file: 'self-portrait-04',
@@ -126,11 +126,6 @@ export const sets: WorkSet[] = [
     works: [
       {
         pages: [
-          {
-            file: 'self-directed-09',
-            source: `${directed}DSC08693(1).jpg`,
-            alt: 'A second teal-lit frontal close-up, wide eyes and parted lips.',
-          },
           {
             file: 'self-directed-01',
             source: `${directed}DSC08456(2).jpg`,
@@ -165,6 +160,11 @@ export const sets: WorkSet[] = [
             file: 'self-directed-07',
             source: `${directed}DSC08661.jpg`,
             alt: 'Teal-lit profile with eyes closed, face tilted upward.',
+          },
+          {
+            file: 'self-directed-09',
+            source: `${directed}DSC08693(1).jpg`,
+            alt: 'A second teal-lit frontal close-up, wide eyes and parted lips.',
           },
         ],
       },
