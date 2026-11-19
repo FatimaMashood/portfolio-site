@@ -32,11 +32,11 @@ const projects = (await getCollection('projects'))
   .filter((entry) => showDrafts || entry.data.publish)
   .sort((a, b) => position(a.data.slug) - position(b.data.slug));
 ---
-<Base title="Selected work | Fatima Mashood" description="I'm Fatima, an interdisciplinary design researcher based in The Netherlands, with an MSc in Creative Intelligence and Technology from Leiden University. My work spans empirical and action research and multimedia design, in projects ranging from human-computer and cat-computer interaction to education research and inclusive design, and from prototypes to installations." showDrafts={showDrafts}>
+<Base title="Selected work | Fatima Mashood" description="I'm Fatima, an interdisciplinary design researcher based in The Hague, Netherlands, with an MSc in Creative Intelligence and Technology from Leiden University. My work spans empirical and action research and multimedia design, in projects ranging from human-computer and cat-computer interaction to education research and inclusive design, and from prototypes to installations." showDrafts={showDrafts}>
   <main id="content">
     <header class="page-intro">
       <h1>Selected work</h1>
-      <p>I'm Fatima, an interdisciplinary design researcher based in The Netherlands, with an MSc in Creative Intelligence and Technology from Leiden University. My work spans empirical and action research and multimedia design, in projects ranging from human-computer and cat-computer interaction to education research and inclusive design, and from prototypes to installations.</p>
+      <p>I'm Fatima, an interdisciplinary design researcher based in The Hague, Netherlands, with an MSc in Creative Intelligence and Technology from Leiden University. My work spans empirical and action research and multimedia design, in projects ranging from human-computer and cat-computer interaction to education research and inclusive design, and from prototypes to installations.</p>
     </header>
     <section class="work-group" aria-label="Selected work">
       <div class="grid">
