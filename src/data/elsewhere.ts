@@ -14,6 +14,7 @@ export interface Page {
 // A work is one image, or several pages shown as a book you turn (pages).
 export interface Work extends Partial<Page> {
   pages?: Page[];
+  ratio?: string; // book page shape, default 940 / 1024 (the comic pages)
 }
 
 export interface WorkSet {
@@ -96,11 +97,6 @@ export const sets: WorkSet[] = [
         alt: 'Teal-lit profile with eyes closed, face tilted upward.',
       },
       {
-        file: 'self-directed-08',
-        source: `${directed}DSC08691(1).jpg`,
-        alt: 'Tight teal-lit frontal close-up with wide eyes and parted purple lips.',
-      },
-      {
         file: 'self-directed-09',
         source: `${directed}DSC08693(1).jpg`,
         alt: 'A second teal-lit frontal close-up, wide eyes and parted lips.',
@@ -151,14 +147,19 @@ export const sets: WorkSet[] = [
     year: '2021',
     works: [
       {
-        file: 'desi-gali-01',
-        source: `${desiGali}193261119_1959879867504472_967856048243681487_n.jpg`,
-        alt: 'Menu post headed Ghar ka khana from Desi Gali, Sides and add-ons: papad, achar, hari chutney, chapati, naan and laccha paratha with prices in rupees, hand-lettered on a light grey ground.',
-      },
-      {
-        file: 'desi-gali-02',
-        source: `${desiGali}193390088_1959879630837829_2813066983618305254_n.jpg`,
-        alt: 'Second sides and add-ons menu post: steamed rice, aloo cutlet, kachumbar, palak raita, zeera raita and homemade dahi with prices in rupees.',
+        ratio: '1 / 1',
+        pages: [
+          {
+            file: 'desi-gali-01',
+            source: `${desiGali}193261119_1959879867504472_967856048243681487_n.jpg`,
+            alt: 'Menu post headed Ghar ka khana from Desi Gali, Sides and add-ons: papad, achar, hari chutney, chapati, naan and laccha paratha with prices in rupees, hand-lettered on a light grey ground.',
+          },
+          {
+            file: 'desi-gali-02',
+            source: `${desiGali}193390088_1959879630837829_2813066983618305254_n.jpg`,
+            alt: 'Second sides and add-ons menu post: steamed rice, aloo cutlet, kachumbar, palak raita, zeera raita and homemade dahi with prices in rupees.',
+          },
+        ],
       },
     ],
   },

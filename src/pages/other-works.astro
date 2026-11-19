@@ -17,7 +17,7 @@ const slug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
         <div class="elsewhere-grid" style={set.frame ? `--frame:${set.frame}` : undefined} data-frame={set.frame ? '' : undefined}>
           {set.works.map((work) => work.pages ? (
             <figure class="book" data-book>
-              <div class="book-pages">
+              <div class="book-pages" style={work.ratio ? `aspect-ratio:${work.ratio}` : undefined}>
                 {work.pages.map((page, i) => (
                   <img
                     class="book-page"
