@@ -1692,6 +1692,61 @@ h1,
   line-height: 1.45;
 }
 
+/* Book: comic pages that turn around the left edge */
+.book-pages {
+  position: relative;
+  aspect-ratio: 940 / 1024;
+  perspective: 2400px;
+  cursor: pointer;
+}
+
+.elsewhere-grid .book-page {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: contain;
+  background: var(--card);
+  transform-origin: left center;
+  backface-visibility: hidden;
+  transition: transform 0.9s cubic-bezier(0.4, 0.1, 0.2, 1);
+}
+
+.book-page.turned {
+  transform: rotateY(-180deg);
+}
+
+.book-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px 12px 0;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+.book-controls button {
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid #d1d5db;
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.book-controls button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .elsewhere-grid .book-page {
+    transition: none;
+  }
+}
+
 @media (max-width: 760px) {
   .elsewhere-grid {
     grid-template-columns: 1fr;

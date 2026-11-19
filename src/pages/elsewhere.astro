@@ -2,9 +2,11 @@
 import Base from '../layouts/Base.astro';
 import { sets } from '../data/elsewhere';
 
-const intro = 'Photography from outside my research: self-portraits and a self-directed project, made for photography courses at Habib University.';
-const src = (file: string) => `/images/elsewhere/${file}`;
+const intro = 'Photography and illustration from outside my research: self-portraits and a self-directed project made for photography courses at Habib University, and comics from an illustration course.';
+const src = (file?: string) => `/images/elsewhere/${file}`;
+const srcset = (file?: string) => `${src(file)}-600.webp 600w, ${src(file)}-1200.webp 1200w`;
 const slug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+const caption = (year?: string) => [year, 'Fatima Mashood'].filter(Boolean).join(' | ');
 ---
 <Base title="Elsewhere | Fatima Mashood" description={intro}>
   <main id="content">
@@ -17,17 +19,40 @@ const slug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
         <h2 id={`set-${slug(set.title)}`}>{set.title}</h2>
         <p class="set-note">{set.note}</p>
         <div class="elsewhere-grid">
-          {set.works.map((work) => (
+          {set.works.map((work) => work.pages ? (
+            <figure class="book" data-book>
+              <div class="book-pages">
+                {work.pages.map((page, i) => (
+                  <img
+                    class="book-page"
+                    style={`z-index:${work.pages!.length - i}`}
+                    src={`${src(page.file)}-1200.webp`}
+                    srcset={srcset(page.file)}
+                    sizes="(min-width: 760px) 50vw, 100vw"
+                    alt={page.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ))}
+              </div>
+              <div class="book-controls">
+                <button type="button" data-prev aria-label="Previous page">←</button>
+                <span class="book-status" aria-live="polite">1 / {work.pages.length}</span>
+                <button type="button" data-next aria-label="Next page">→</button>
+              </div>
+              <figcaption>{caption(work.year)}</figcaption>
+            </figure>
+          ) : (
             <figure>
               <img
                 src={`${src(work.file)}-1200.webp`}
-                srcset={`${src(work.file)}-600.webp 600w, ${src(work.file)}-1200.webp 1200w`}
+                srcset={srcset(work.file)}
                 sizes="(min-width: 760px) 50vw, 100vw"
                 alt={work.alt}
                 loading="lazy"
                 decoding="async"
               />
-              <figcaption>{[work.year, 'Fatima Mashood'].filter(Boolean).join(' | ')}</figcaption>
+              <figcaption>{caption(work.year)}</figcaption>
             </figure>
           ))}
         </div>
@@ -35,3 +60,34 @@ const slug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     ))}
   </main>
 </Base>
+
+<script>
+  // Page turn: earlier pages rotate away around the spine (left edge), revealing the next.
+  for (const book of document.querySelectorAll<HTMLElement>('[data-book]')) {
+    const pages = [...book.querySelectorAll<HTMLElement>('.book-page')];
+    const prev = book.querySelector<HTMLButtonElement>('[data-prev]')!;
+    const next = book.querySelector<HTMLButtonElement>('[data-next]')!;
+    const status = book.querySelector<HTMLElement>('.book-status')!;
+    let current = 0;
+    const show = () => {
+      pages.forEach((page, i) => {
+        page.classList.toggle('turned', i < current);
+        page.setAttribute('aria-hidden', String(i !== current));
+      });
+      status.textContent = `${current + 1} / ${pages.length}`;
+      prev.disabled = current === 0;
+      next.disabled = current === pages.length - 1;
+    };
+    const go = (step: number) => {
+      current = Math.min(pages.length - 1, Math.max(0, current + step));
+      show();
+    };
+    prev.addEventListener('click', () => go(-1));
+    next.addEventListener('click', () => go(1));
+    book.querySelector('.book-pages')!.addEventListener('click', (event) => {
+      const box = (event.currentTarget as HTMLElement).getBoundingClientRect();
+      go((event as MouseEvent).clientX - box.left > box.width / 2 ? 1 : -1);
+    });
+    show();
+  }
+</script>

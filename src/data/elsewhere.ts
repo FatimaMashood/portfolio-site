@@ -4,11 +4,16 @@
 // `source` is relative to ../fama-portfolio-references and is only read by that script.
 // Caption is year + name only, by owner's choice; titles go in later when she gives them.
 
-export interface Work {
+export interface Page {
   file: string; // output base name in public/images/elsewhere/
   source: string;
-  year?: string;
   alt: string;
+}
+
+// A work is one image, or several pages shown as a book you turn (pages).
+export interface Work extends Partial<Page> {
+  year?: string;
+  pages?: Page[];
 }
 
 export interface WorkSet {
@@ -19,6 +24,7 @@ export interface WorkSet {
 
 const portraits = 'final photography/self-portraits/';
 const directed = 'final photography/self-directed/';
+const pages = '_prepared/illustration/pages/';
 
 export const sets: WorkSet[] = [
   {
@@ -99,6 +105,47 @@ export const sets: WorkSet[] = [
         file: 'self-directed-09',
         source: `${directed}DSC08693(1).jpg`,
         alt: 'A second teal-lit frontal close-up, wide eyes and parted lips.',
+      },
+    ],
+  },
+  {
+    title: 'Illustration',
+    note: 'Coloured pencil on paper, illustration course, Habib University. Turn the pages.',
+    works: [
+      {
+        year: '2020',
+        pages: [
+          {
+            file: 'comic-a-1',
+            source: `${pages}noodle-1.jpg`,
+            alt: 'Page 1 of 3, four panels: a boy asleep, a dream of a bowl of noodles, the boy waking up delighted, and the boy as a chef at the stove.',
+          },
+          {
+            file: 'comic-a-2',
+            source: `${pages}noodle-2.jpg`,
+            alt: 'Page 2 of 3, four panels: a girl worried at a table with a noodle bowl, the girl at a door, the boy lying awake in bed, and a dream of two people holding tickets.',
+          },
+          {
+            file: 'comic-a-3',
+            source: 'Illustration_course_bachelors/IMG_20200618_133545_842.jpg',
+            alt: 'Page 3 of 3, four panels: a phone booking a flight, a plane over a map of Japan, two cooks at their pots, and a book about Japanese food.',
+          },
+        ],
+      },
+      {
+        year: '2020',
+        pages: [
+          {
+            file: 'comic-b-1',
+            source: 'Illustration_course_bachelors/IMG_20200626_143916_387.jpg',
+            alt: 'Page 1 of 2: a dachshund walks along a road under trees saying it loves humans and does not know why humans do not love it, above a street of pink houses with a police car.',
+          },
+          {
+            file: 'comic-b-2',
+            source: `${pages}dog-2.jpg`,
+            alt: 'Page 2 of 2: the same road, now with a hand holding a gun and the dachshund wounded, above a row of prison bars with two hands gripping them.',
+          },
+        ],
       },
     ],
   },

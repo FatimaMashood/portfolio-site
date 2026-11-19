@@ -13,7 +13,7 @@ const out = fileURLToPath(new URL('../public/images/elsewhere/', import.meta.url
 const force = process.argv.includes('--force');
 mkdirSync(out, { recursive: true });
 
-for (const work of sets.flatMap((set) => set.works)) {
+for (const work of sets.flatMap((set) => set.works.flatMap((w) => w.pages ?? [w]))) {
   for (const width of [600, 1200]) {
     const target = join(out, `${work.file}-${width}.webp`);
     if (!force && existsSync(target)) continue;
