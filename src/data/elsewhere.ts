@@ -12,10 +12,9 @@ export interface Page {
 
 // Every work is a book: one image at a time, click the right/left half to turn.
 // The first page is the one visitors see, so put the strongest image first.
-// All books share one 4:3 frame so rows line up; images are fitted inside, never cropped.
+// All books share one 4:3 frame so rows line up; images are fitted inside on the page background, never cropped.
 export interface Work {
   pages: Page[];
-  dark?: boolean; // letterbox on black instead of white (photographs)
 }
 
 export interface WorkSet {
@@ -94,7 +93,6 @@ export const sets: WorkSet[] = [
     year: '2019',
     works: [
       {
-        dark: true,
         pages: [
           {
             file: 'self-portrait-03',
@@ -125,7 +123,6 @@ export const sets: WorkSet[] = [
     year: '2019',
     works: [
       {
-        dark: true,
         pages: [
           {
             file: 'self-directed-09',

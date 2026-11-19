@@ -1738,7 +1738,6 @@ h1,
   inset: 0;
   height: 100%;
   object-fit: contain;
-  background: var(--card);
   transform-origin: left center;
   backface-visibility: hidden;
   transition: transform 0.9s cubic-bezier(0.4, 0.1, 0.2, 1);
@@ -1746,6 +1745,13 @@ h1,
 
 .book-page.turned {
   transform: rotateY(-180deg);
+}
+
+/* frames have no fill, so pages waiting underneath are hidden (after the turn ends) or a
+   larger image below would show around the current one */
+.book-page.below {
+  visibility: hidden;
+  transition: transform 0.9s cubic-bezier(0.4, 0.1, 0.2, 1), visibility 0s linear 0.9s;
 }
 
 .book-zone {
@@ -1784,10 +1790,6 @@ h1,
   color: var(--muted);
   font-size: 0.8125rem;
   text-align: center;
-}
-
-.book.dark .book-page {
-  background: #000;
 }
 
 @media (prefers-reduced-motion: reduce) {

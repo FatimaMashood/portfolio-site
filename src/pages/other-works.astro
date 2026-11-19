@@ -36,7 +36,7 @@ const cells: Cell[] = [
               <span class="exhibit-venue">{cell.exhibit.venue}</span>
             </a>
           ) : (
-            <figure class:list={['book', { dark: cell.work.dark }]} data-book>
+            <figure class="book" data-book>
               <div class="book-pages">
                 {cell.work.pages.map((page, i) => (
                   <img
@@ -74,6 +74,7 @@ const cells: Cell[] = [
     const show = () => {
       pages.forEach((page, i) => {
         page.classList.toggle('turned', i < current);
+        page.classList.toggle('below', i > current);
         page.setAttribute('aria-hidden', String(i !== current));
       });
       status.textContent = `${current + 1} / ${pages.length}`;
