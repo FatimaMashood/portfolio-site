@@ -2,12 +2,11 @@
 // To add a work: put the original in fama-portfolio-references, add an entry here,
 // run `node scripts/elsewhere-images.mjs`, then build.
 // `source` is relative to ../fama-portfolio-references and is only read by that script.
+// Caption is year + name only, by owner's choice; titles go in later when she gives them.
 
 export interface Work {
   file: string; // output base name in public/images/elsewhere/
   source: string;
-  title: string;
-  medium: string;
   year?: string;
   alt: string;
 }
@@ -18,112 +17,85 @@ export interface WorkSet {
   works: Work[];
 }
 
+const portraits = 'portfolio documents/Self-portraits/';
+const directed = 'portfolio documents/Self-directed project/';
+
 export const sets: WorkSet[] = [
   {
     title: 'Self-portraits',
-    note: 'Photography course, Habib University.',
+    note: 'Photography, Habib University.',
     works: [
       {
-        file: 'avoid-the-gaze',
-        source: 'portfolio documents/Self-portraits/FTM06136.jpg',
-        title: 'Avoid the gaze',
-        medium: 'Photography',
-        year: '2019',
-        alt: 'Self-portrait with the head wrapped in white gauze, only the eyes visible, cool blue-white light on a black ground.',
-      },
-      {
-        file: 'cant-my-narrative-be-only-mine',
-        source: 'portfolio documents/Self-portraits/FTM06110-2.jpg',
-        title: 'Can’t my narrative be only mine?',
-        medium: 'Photography',
+        file: 'self-portrait-01',
+        source: `${portraits}FTM06110-2.jpg`,
         year: '2019',
         alt: 'Self-portrait on a black ground with the head tipped back under sheer white fabric pulled taut over the face.',
       },
       {
-        file: 'birdcage',
-        source: 'portfolio documents/Self-portraits/FTM06183.jpg',
-        title: 'Untitled (birdcage)',
-        medium: 'Photography',
+        file: 'self-portrait-02',
+        source: `${portraits}FTM06111.jpg`,
         year: '2019',
-        alt: 'Self-portrait with a metal birdcage over the head, both hands holding the cage, in a dark blue patterned shirt.',
+        alt: 'A second frame of the veiled self-portrait, head tipped back under white fabric on black.',
       },
       {
-        file: 'profile',
-        source: 'portfolio documents/Self-portraits/FTM06170.jpg',
-        title: 'Untitled (profile)',
-        medium: 'Photography',
+        file: 'self-portrait-03',
+        source: `${portraits}FTM06170.jpg`,
         year: '2019',
         alt: 'Side profile lit from one edge, the rest of the face and body falling into black.',
       },
     ],
   },
   {
-    title: 'Self-directed series',
-    note: 'Six frames from a self-directed photography project, Habib University, in two lighting chapters, amber and teal.',
+    title: 'Self-directed project',
+    note: 'Photography, Habib University.',
     works: [
       {
-        file: 'series-01',
-        source: 'photography course bachelors/DSC08368.jpg',
-        title: 'Self-directed series, i',
-        medium: 'Photography',
-        alt: 'Warm amber portrait in a stocking cap, bare shoulders, looking straight at the camera.',
+        file: 'self-directed-01',
+        source: `${directed}DSC08472.jpg`,
+        alt: 'Face and head wrapped in sheer nude stocking fabric, eyes closed, in warm amber light.',
       },
       {
-        file: 'series-02',
-        source: 'photography course bachelors/DSC08444 (1).jpg',
-        title: 'Self-directed series, ii',
-        medium: 'Photography',
-        alt: 'The same amber portrait with eyes closed and chin slightly raised.',
+        file: 'self-directed-02',
+        source: `${directed}DSC08458.jpg`,
+        alt: 'Angled close-up of a face pressed under sheer stocking fabric, in amber light.',
       },
       {
-        file: 'series-03',
-        source: 'photography course bachelors/DSC08458.jpg',
-        title: 'Self-directed series, iii',
-        medium: 'Photography',
-        alt: 'Close-up of a face pressed under sheer nude stocking fabric, features softened, in amber light.',
+        file: 'self-directed-03',
+        source: `${directed}DSC08456.jpg`,
+        alt: 'Frontal close-up of eyes and nose under sheer stocking fabric, in amber light.',
       },
       {
-        file: 'series-04',
-        source: 'photography course bachelors/DSC08548.jpg',
-        title: 'Self-directed series, iv',
-        medium: 'Photography',
-        alt: 'Head thrown back, throat and shoulder catching light against a dark ground.',
+        file: 'self-directed-04',
+        source: `${directed}DSC08650.jpg`,
+        alt: 'Teal-lit portrait turned to the side, looking back over the shoulder, purple lips.',
       },
       {
-        file: 'series-05',
-        source: 'photography course bachelors/DSC08633.jpg',
-        title: 'Self-directed series, v',
-        medium: 'Photography',
-        alt: 'Teal-lit close side profile with freckles and purple lips, looking upward.',
-      },
-      {
-        file: 'series-06',
-        source: 'photography course bachelors/DSC08693.jpg',
-        title: 'Self-directed series, vi',
-        medium: 'Photography',
+        file: 'self-directed-05',
+        source: `${directed}DSC08691.jpg`,
         alt: 'Tight teal-lit frontal close-up with wide eyes and parted purple lips.',
+      },
+      {
+        file: 'self-directed-06',
+        source: `${directed}DSC08693.jpg`,
+        alt: 'A second teal-lit frontal close-up, wide eyes and parted lips.',
       },
     ],
   },
   {
     title: 'Illustration',
-    note: 'Comic pages from an illustration course during my bachelor’s, Habib University.',
+    note: 'Coloured pencil on paper, illustration course, Habib University.',
     works: [
       {
-        file: 'comic-dachshund',
-        source: 'Illustration_course_bachelors/IMG_20200626_143916_387.jpg',
-        title: 'I love humans',
-        medium: 'Coloured pencil on paper',
+        file: 'illustration-01',
+        source: 'Illustration_course_bachelors/IMG_20200618_133545_842.jpg',
         year: '2020',
-        alt: 'Comic page: a dachshund walks along a road under trees saying “I love humans… I don’t know why humans don’t love me”, above a street of pink houses with a police car.',
+        alt: 'Four-panel comic: a phone booking a flight, a plane over a map of Japan, two cooks at their pots, and a book about Japanese food.',
       },
       {
-        file: 'comic-japan',
-        source: 'Illustration_course_bachelors/IMG_20200618_133545_842.jpg',
-        title: 'Japanese food for dummies',
-        medium: 'Coloured pencil on paper',
+        file: 'illustration-02',
+        source: 'Illustration_course_bachelors/IMG_20200626_143916_387.jpg',
         year: '2020',
-        alt: 'Four-panel comic: a phone booking a flight, a plane over a map of Japan, two cooks at their pots, and a book titled Japanese Food for Dummies.',
+        alt: 'Comic page: a dachshund walks along a road under trees with a speech bubble, above a street of pink houses with a police car.',
       },
     ],
   },

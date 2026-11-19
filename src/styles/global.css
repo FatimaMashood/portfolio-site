@@ -1692,12 +1692,6 @@ h1,
   line-height: 1.45;
 }
 
-.elsewhere-grid .work-title {
-  display: block;
-  color: var(--ink);
-  font-weight: 700;
-}
-
 @media (max-width: 760px) {
   .elsewhere-grid {
     grid-template-columns: 1fr;

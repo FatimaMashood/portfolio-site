@@ -27,10 +27,7 @@ const slug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
                 loading="lazy"
                 decoding="async"
               />
-              <figcaption>
-                <span class="work-title">{work.title}</span>
-                {[work.medium, work.year, '© Fatima Mashood'].filter(Boolean).join(' · ')}
-              </figcaption>
+              <figcaption>{[work.year, '© Fatima Mashood'].filter(Boolean).join(' · ')}</figcaption>
             </figure>
           ))}
         </div>
