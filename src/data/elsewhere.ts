@@ -17,8 +17,8 @@ export interface WorkSet {
   works: Work[];
 }
 
-const portraits = 'portfolio documents/Self-portraits/';
-const directed = 'portfolio documents/Self-directed project/';
+const portraits = 'final photography/self-portraits/';
+const directed = 'final photography/self-directed/';
 
 export const sets: WorkSet[] = [
   {
@@ -39,6 +39,12 @@ export const sets: WorkSet[] = [
       },
       {
         file: 'self-portrait-03',
+        source: `${portraits}FTM06136.jpg`,
+        year: '2019',
+        alt: 'Self-portrait with the head wrapped in white gauze, only the eyes visible, cool light on a black ground.',
+      },
+      {
+        file: 'self-portrait-04',
         source: `${portraits}FTM06170.jpg`,
         year: '2019',
         alt: 'Side profile lit from one edge, the rest of the face and body falling into black.',
@@ -51,51 +57,48 @@ export const sets: WorkSet[] = [
     works: [
       {
         file: 'self-directed-01',
-        source: `${directed}DSC08472.jpg`,
-        alt: 'Face and head wrapped in sheer nude stocking fabric, eyes closed, in warm amber light.',
+        source: `${directed}DSC08456(2).jpg`,
+        alt: 'Frontal close-up of eyes and nose under sheer stocking fabric, in amber light.',
       },
       {
         file: 'self-directed-02',
-        source: `${directed}DSC08458.jpg`,
+        source: `${directed}DSC08458(1).jpg`,
         alt: 'Angled close-up of a face pressed under sheer stocking fabric, in amber light.',
       },
       {
         file: 'self-directed-03',
-        source: `${directed}DSC08456.jpg`,
-        alt: 'Frontal close-up of eyes and nose under sheer stocking fabric, in amber light.',
+        source: `${directed}DSC08472.jpg`,
+        alt: 'Face and head wrapped in sheer nude stocking fabric, eyes closed, in warm amber light.',
       },
       {
         file: 'self-directed-04',
-        source: `${directed}DSC08650.jpg`,
-        alt: 'Teal-lit portrait turned to the side, looking back over the shoulder, purple lips.',
+        source: `${directed}DSC08590(1).jpg`,
+        alt: 'Teal-lit figure seen from behind, head turned in profile over a bare shoulder.',
       },
       {
         file: 'self-directed-05',
-        source: `${directed}DSC08691.jpg`,
-        alt: 'Tight teal-lit frontal close-up with wide eyes and parted purple lips.',
+        source: `${directed}DSC08633(1).jpg`,
+        alt: 'Teal-lit close side profile with freckles and purple lips, looking upward.',
       },
       {
         file: 'self-directed-06',
-        source: `${directed}DSC08693.jpg`,
+        source: `${directed}DSC08650(1).jpg`,
+        alt: 'Teal-lit portrait turned to the side, looking back over the shoulder, purple lips.',
+      },
+      {
+        file: 'self-directed-07',
+        source: `${directed}DSC08661.jpg`,
+        alt: 'Teal-lit profile with eyes closed, face tilted upward.',
+      },
+      {
+        file: 'self-directed-08',
+        source: `${directed}DSC08691(1).jpg`,
+        alt: 'Tight teal-lit frontal close-up with wide eyes and parted purple lips.',
+      },
+      {
+        file: 'self-directed-09',
+        source: `${directed}DSC08693(1).jpg`,
         alt: 'A second teal-lit frontal close-up, wide eyes and parted lips.',
-      },
-    ],
-  },
-  {
-    title: 'Illustration',
-    note: 'Coloured pencil on paper, illustration course, Habib University.',
-    works: [
-      {
-        file: 'illustration-01',
-        source: 'Illustration_course_bachelors/IMG_20200618_133545_842.jpg',
-        year: '2020',
-        alt: 'Four-panel comic: a phone booking a flight, a plane over a map of Japan, two cooks at their pots, and a book about Japanese food.',
-      },
-      {
-        file: 'illustration-02',
-        source: 'Illustration_course_bachelors/IMG_20200626_143916_387.jpg',
-        year: '2020',
-        alt: 'Comic page: a dachshund walks along a road under trees with a speech bubble, above a street of pink houses with a police car.',
       },
     ],
   },
