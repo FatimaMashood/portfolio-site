@@ -20,6 +20,7 @@ export interface Work {
 export interface WorkSet {
   title: string;
   year: string;
+  newRow?: boolean; // start this set at the left of a new row
   works: Work[];
 }
 
@@ -91,6 +92,7 @@ export const sets: WorkSet[] = [
   {
     title: 'self-portraits',
     year: '2019',
+    newRow: true,
     works: [
       {
         pages: [

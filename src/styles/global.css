@@ -1659,6 +1659,10 @@ h1,
   padding: 8px 0 32px;
 }
 
+.other-cell.new-row {
+  grid-column-start: 1;
+}
+
 .other-grid figure {
   margin: 0;
 }

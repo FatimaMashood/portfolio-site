@@ -10,10 +10,10 @@ const srcset = (file: string) => `${src(file)}-600.webp 600w, ${src(file)}-1200.
 
 // One flat grid, in order: each set's first cell carries its heading, later cells keep the
 // heading row empty so images in a row stay level.
-type Cell = { heading?: { title: string; year?: string } } & ({ exhibit: (typeof exhibits)[number]['data'] } | { work: Work });
+type Cell = { heading?: { title: string; year?: string }; newRow?: boolean } & ({ exhibit: (typeof exhibits)[number]['data'] } | { work: Work });
 const cells: Cell[] = [
   ...exhibits.map(({ data }, i) => ({ heading: i === 0 ? { title: 'exhibits' } : undefined, exhibit: data })),
-  ...sets.flatMap((set) => set.works.map((work, i) => ({ heading: i === 0 ? set : undefined, work }))),
+  ...sets.flatMap((set) => set.works.map((work, i) => ({ heading: i === 0 ? set : undefined, newRow: i === 0 && set.newRow, work }))),
 ];
 ---
 <Base title="Other works | Fatima Mashood" description="Photography, illustration and design by Fatima Mashood.">
@@ -23,7 +23,7 @@ const cells: Cell[] = [
     </header>
     <div class="other-grid">
       {cells.map((cell) => (
-        <div class="other-cell">
+        <div class:list={['other-cell', { 'new-row': cell.newRow }]}>
           {cell.heading ? (
             <h2 class="cell-heading">{cell.heading.title} {cell.heading.year && <span class="set-year">{cell.heading.year}</span>}</h2>
           ) : (
